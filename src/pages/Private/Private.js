@@ -1,20 +1,33 @@
 import React, { Component } from "react";
-import { withAuth } from './../../context/auth-context';
+import { withAuth } from "./../../context/auth.context";
+import { Link } from "react-router-dom";
 
 class Private extends Component {
   render() {
+    console.log(this.props);
     return (
-      <div>
+      <div className="user-details">
         <h1>Private Route</h1>
         <h2>Welcome {this.props.user && this.props.user.username}</h2>
-        {/* 
-        <h2>Welcome {this.props.user ? this.props.user.username : null }</h2> 
-        */}
-
+        <div>
+          <p>Username: {this.props.user.username}</p>
+          <p>Email: {this.props.user.email}</p>
+          <button>Edit</button>
+        </div>
+        <div className="bookmarks-container">
+          {this.props.user.bookmarks.map((bookmark) => (
+            <div key={bookmark._id} className="bookmark">
+              <Link to={`/kanji/${bookmark._id}`}>
+                <h3>{bookmark._id}</h3>
+                <h3>{bookmark.kanji}</h3>
+                <p> go there </p>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
 }
-
 
 export default withAuth(Private);
