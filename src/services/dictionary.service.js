@@ -13,7 +13,7 @@ class DictionaryService {
     });
   }
 
-  getAll = () => {
+  getAllKanjis = () => {
     const pr = this.dictionary.get("/").then((response) => response.data);
     return pr;
   };

@@ -12,7 +12,7 @@ class MyProfileService {
       withCredentials: true,
     });
   }
-  getOne = (id) => {
+  getOneUser = (id) => {
     const pr = this.myProfile.get(`/${id}`).then((response) => response.data);
 
     return pr;

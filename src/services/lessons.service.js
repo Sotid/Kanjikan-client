@@ -11,7 +11,7 @@ class LessonsService {
     });
   }
 
-  getAll = () => {
+  getAllLessons = () => {
     const pr = this.lessons
     .get("/")
     .then((response) => response.data);
@@ -20,7 +20,7 @@ class LessonsService {
     return pr;
   };
 
-  getOne = (id) => {
+  getOneLesson = (id) => {
     const pr = this.lessons
     .get(`/${id}`)
     .then((response) => response.data);
