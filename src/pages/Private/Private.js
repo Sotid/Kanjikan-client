@@ -20,16 +20,18 @@ class Private extends Component {
           <button onClick={this.toggleEdit}>Edit</button>
           {this.state.showEdit ? <EditProfile /> : null}
         </div>
+
         <div className="bookmarks-container">
-          {this.props.user.bookmarks.map((bookmark) => (
-            <div key={bookmark._id} className="bookmark">
-              <Link to={`/kanji/${bookmark._id}`}>
-                <h3>{bookmark._id}</h3>
-                <h3>{bookmark.kanji}</h3>
-                <p> go there </p>
-              </Link>
-            </div>
-          ))}
+          {this.props.user.bookmarks.map((data) => {
+            return (
+              <div key={data._id} className="bookmark">
+                <Link to={`/kanji/${data._id}`}>
+                  <h3>{data.meanings}</h3>
+                  <h3>{data.kanji}</h3>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     );

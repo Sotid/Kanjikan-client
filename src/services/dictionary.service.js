@@ -2,7 +2,6 @@ import axios from "axios";
 
 class DictionaryService {
   constructor() {
-
     this.dictionary = axios.create({
       baseURL: "http://localhost:5000/api/dictionary",
       withCredentials: true,
@@ -17,25 +16,14 @@ class DictionaryService {
   //   }
   // }
 
-
-  getSearchResults = async (query) => {
-    try{
-    await this.dictionary
-
-      .get(`/search/${query}`)
-    
+  getSearchResults = async () => {
+    try {
+      let response = await this.dictionary.get(`/`);
+      return response.data;
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-
-  }
-
-//  getSearchResults = (query) => {
-//   const pr = this.dictionary.get(`/search/${query}`);
-//   console.log(pr)
-//   return pr;
-// };
-
+  };
 }
 const dictionaryService = new DictionaryService();
 export default dictionaryService;

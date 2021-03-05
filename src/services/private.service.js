@@ -1,3 +1,4 @@
+import { generatePath } from "react-router-dom";
 import axios from "axios";
 
 // THIS IS AN EXAMPLE THAT YOU CAN USE
@@ -12,15 +13,31 @@ class PrivateService {
       withCredentials: true,
     });
   }
-  getOneUser = (id) => {
-    const pr = this.private.get(`/${id}`).then((response) => response.data);
-
+  getOneUser = (
+    username,
+    password,
+    email,
+    bookmarks,
+    lessonsCompleted,
+    userId
+  ) => {
+    const pr = this.private
+      .get(`/${userId}`, {
+        username,
+        password,
+        email,
+        bookmarks,
+        lessonsCompleted,
+      })
+      .then((response) => response.data);
+    console.log(pr);
     return pr;
   };
 
-  editProfile = (id, username, email, password) => {
+  editProfile = (username, email, password, userId) => {
+    console.log(username, email, password, userId)
     const pr = this.private
-      .post(`/${id}`, { username, email, password })
+      .post(generatePath("/:id", {id: userId}), { username, email, password })
       .then((response) => response.data);
 
     return pr;

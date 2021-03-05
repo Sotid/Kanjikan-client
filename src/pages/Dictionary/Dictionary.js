@@ -3,66 +3,87 @@ import dictionaryService from "./../../services/dictionary.service";
 import axios from "axios";
 
 class Dictionary extends Component {
-  
   state = {
     query: "",
+    result: [],
   };
 
+  handleSearchInput = (event) => {
+    let query = event.target.value;
+    this.setState(() => ({ query: query }));
 
+    this.searchResults(query);
+  };
 
-    //   componentDidMount () {
-    //       console.log(dictionaryService.getAllKanjis(), 'console.log')
-          
-    //     //   this.setState({
-    //     //       allKanjis: dictionaryService.getAllKanjis()
-    //     //   })
+  searchResults = async (query) => {
+    try {
+      let response = await dictionaryService.getSearchResults();
+      console.log(response);
+      // this.setState({results: response})
+      let findMeaning = response.find((data) => {
+        return data.meanings.includes(query);
+      });
+      this.setState({ result: [findMeaning] });
+    } catch (err) {}
+  };
+
+  handleSubmit = (event) => {
+    console.log("hello");
+    event.preventDefault();
+    this.searchResults();
+
+    this.setState({ result: {}, query: "" });
+  };
+
+  render() {
+    console.log(this.state);
+    // let calling = async () => {
+    //   try {
+    //       let all = await axios.get("http://localhost:5000/api/dictionary");
+    //       this.setState({
+    //           allKanjis: all.data
+    //       })
+
+    //   } catch(err) {
+    //       console.error(err);
     //   }
+    // }
+    // calling()
 
-
-     handleSearchInput = (event) => {
-         console.log(event.target.value)
-      let query = event.target.value
-      this.setState(() => ({query:query}))
-
-      this.getSearchResults()
-      .then((found) => {
-          this.setState(() => ({found: found}));
-        }
-      )
-
-  }
-
-
-
-  render() 
-  {
-
-      // let calling = async () => {
-      //   try {
-      //       let all = await axios.get("http://localhost:5000/api/dictionary");
-      //       this.setState({
-      //           allKanjis: all.data
-      //       })
-           
-      //   } catch(err) {
-      //       console.error(err);
-      //   }
-      // }
-      // calling()
-      
-      // const { allKanjis } = this.state;
+    // const { allKanjis } = this.state;
 
     return (
       <div>
         <div>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <input
               placeholder="search for kanjis"
               name="search"
               type="text"
-              value={this.state.meaning}
+              value={this.state.query}
               onChange={this.handleSearchInput}
             />
+            <button onSubmit={this.handleSubmit}> Search </button>
+
+            <div>
+              {this.state.result.map((data, key) => {
+                return (
+                  data && (
+                    <div key={key}>
+                      {data.kanji}
+                      {data.meanings}
+                    </div>
+                  )
+                );
+              })}
+              {/* {this.state.result && this.state.result.map((data, key) => {
+                return (
+                  <div key={key}>
+                  {data.kanji}
+                </div>
+                )
+                })} */}
+            </div>
           </form>
 
           {/* {allKanjis && allKanjis.map((kanji) => {
@@ -83,4 +104,3 @@ class Dictionary extends Component {
 }
 
 export default Dictionary;
-
