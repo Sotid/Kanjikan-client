@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Private from './pages/Private/Private';
+import Dictionary from './pages/Dictionary/Dictionary';
 
 // Components
 import Navbar from './components/Navbar/Navbar';
@@ -21,12 +22,14 @@ class App extends Component {
         <Navbar />
 
         <Switch>
-          <Route exact path="/" component={Home} />
+          <PrivateRoute exact path="/lessons" component={Home} />
 
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
 
           <PrivateRoute exact path="/private" component={Private} />
+          <PrivateRoute exact path="/dictionary" component={Dictionary} />
+
         </Switch>
       </div>
     );

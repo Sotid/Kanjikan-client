@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { withAuth } from "./../../context/auth.context";
 import { Link } from "react-router-dom";
-
+import EditProfile from "../../components/EditProfile/EditProfile";
 class Private extends Component {
+  state = {
+    showEdit: false,
+  };
+  toggleEdit = () => {
+    this.setState({ showEdit: !this.state.showEdit });
+  };
   render() {
-    console.log(this.props);
     return (
       <div className="user-details">
         <h1>Private Route</h1>
@@ -12,7 +17,8 @@ class Private extends Component {
         <div>
           <p>Username: {this.props.user.username}</p>
           <p>Email: {this.props.user.email}</p>
-          <button>Edit</button>
+          <button onClick={this.toggleEdit}>Edit</button>
+          {this.state.showEdit ? <EditProfile /> : null}
         </div>
         <div className="bookmarks-container">
           {this.props.user.bookmarks.map((bookmark) => (
@@ -29,5 +35,4 @@ class Private extends Component {
     );
   }
 }
-
 export default withAuth(Private);
