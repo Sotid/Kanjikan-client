@@ -13,7 +13,8 @@ class PrivateService {
       withCredentials: true,
     });
   }
-  getOneUser = (
+ 
+  getOneUser = async (
     username,
     password,
     email,
@@ -21,47 +22,55 @@ class PrivateService {
     lessonsCompleted,
     userId
   ) => {
-    const pr = this.private
+    try {
+    let response = await this.private
       .get(`/${userId}`, {
         username,
         password,
         email,
         bookmarks,
         lessonsCompleted,
-      })
-      .then((response) => response.data);
-    console.log(pr);
-    return pr;
-  };
-
-  editProfile = (username, email, password, userId) => {
-    console.log(username, email, password, userId)
-    const pr = this.private
-      .post(generatePath("/:id", {id: userId}), { username, email, password })
-      .then((response) => response.data);
-
-    return pr;
-  };
-
-  addToBookmarks = (id) => {
-    const pr = this.private
-      .post(`/${id}/add`, { id })
-      .then((response) => response.data);
-    return pr;
-  };
-
-  deleteFromBookmarks = (id) => {
-    const pr = this.private
-      .post(`/${id}/delete`, { id })
-      .then((response) => response.data);
-    return pr;
-  };
+      });
+      return response.data;
+    }catch (err) {
+    console.log(err);
+  }
 }
 
-// Create instance (object) containing all axios calls as methods
+
+  editProfile = async (username, email, password, userId) => {
+    try {
+    console.log(username, email, password, userId)
+    let response = await this.private
+      .post(generatePath("/:id", {id: userId}), { username, email, password })
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+    };
+
+  addToBookmarks = async (id) => {
+    try {
+    let response = await this.private
+      .post(`/${id}/add`, { id })
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+    };
+
+  deleteFromBookmarks = async (id) => {
+    try {
+      let response = await this.private
+      .post(`/${id}/delete`, { id })
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+    };
+  }
+
 const privateService = new PrivateService();
 
 export default privateService;
 
-// Service is a set of methods abstracted and placed into a class, out of which we create one instance.
-// In the above case, all axios request calls are abstracted into methods.

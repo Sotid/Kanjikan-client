@@ -1,20 +1,16 @@
 import React, { Component } from "react";
 import dictionaryService from "./../../services/dictionary.service";
 import axios from "axios";
-
 class Dictionary extends Component {
   state = {
     query: "",
     result: [],
   };
-
   handleSearchInput = (event) => {
     let query = event.target.value;
     this.setState(() => ({ query: query }));
-
     this.searchResults(query);
   };
-
   searchResults = async (query) => {
     try {
       let response = await dictionaryService.getSearchResults();
@@ -26,15 +22,12 @@ class Dictionary extends Component {
       this.setState({ result: [findMeaning] });
     } catch (err) {}
   };
-
   handleSubmit = (event) => {
     console.log("hello");
     event.preventDefault();
     this.searchResults();
-
     this.setState({ result: {}, query: "" });
   };
-
   render() {
     console.log(this.state);
     // let calling = async () => {
@@ -43,15 +36,12 @@ class Dictionary extends Component {
     //       this.setState({
     //           allKanjis: all.data
     //       })
-
     //   } catch(err) {
     //       console.error(err);
     //   }
     // }
     // calling()
-
     // const { allKanjis } = this.state;
-
     return (
       <div>
         <div>
@@ -64,7 +54,6 @@ class Dictionary extends Component {
               onChange={this.handleSearchInput}
             />
             <button onSubmit={this.handleSubmit}> Search </button>
-
             <div>
               {this.state.result.map((data, key) => {
                 return (
@@ -76,16 +65,9 @@ class Dictionary extends Component {
                   )
                 );
               })}
-              {/* {this.state.result && this.state.result.map((data, key) => {
-                return (
-                  <div key={key}>
-                  {data.kanji}
-                </div>
-                )
-                })} */}
+             
             </div>
           </form>
-
           {/* {allKanjis && allKanjis.map((kanji) => {
             return (
               <div key={kanji.unicode} className="kanji">
@@ -102,5 +84,4 @@ class Dictionary extends Component {
     );
   }
 }
-
 export default Dictionary;

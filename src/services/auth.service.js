@@ -8,30 +8,37 @@ class AuthService {
     });
   }
 
-  signup( username, email, password ) {
-    const pr = this.auth
+  signup = async ( username, email, password ) =>{
+    try {
+      let response = await this.auth
       .post("/auth/signup", { username, email, password })
-      .then((response) => response.data);
-      // .then(({ data }) => data); // Shorter way of `.then((response) => response.data);`
-
-    return pr;
+      return response.data;
+    } catch (err) {
+      console.log(err)}
   }
 
-  login( username, password ) {
-    const pr = this.auth
+
+  login = async ( username, password ) =>{
+    try {
+      let response = await this.auth
       .post("/auth/login", { username, password })
-      .then((response) => response.data);
-      
-    return pr;
+      return response.data
+    } catch (err) {
+      console.log(err)
+    }
   }
 
-  logout() {
-    const pr = this.auth
-      .get("/auth/logout")
-      .then((response) => response.data);
+  logout = async () => {
+    try{
+    let response = await this.auth
+      .get("/auth/logout");
+      return response.data
 
-    return pr;
+    }catch (err) {
+    console.log(err)
   }
+}
+
 
   me() {
     const pr = this.auth
@@ -47,5 +54,3 @@ const authService = new AuthService();
 
 export default authService;
 
-// Service is a set of methods abstracted and placed into a class, out of which we create one instance.
-// In the above case, all axios request calls are abstracted into methods.

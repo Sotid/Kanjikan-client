@@ -1,38 +1,30 @@
-// A COMENTAR CON JULIAN:
-// * PRIVATE.JS -> bookmarks array appears empty after populate
-// * DICTIONARY.JS -> promise not resolved
-// * EDITPROFILE.JS -> doesnt find id
+
 import React, { Component } from "react";
 import PrivateService from "../../services/private.service";
-import axios from "axios";
 import { withAuth } from "./../../context/auth.context";
-import { withRouter } from "react-router";
+
+
 class EditProfile extends Component {
   state = {
     username: "",
     password: "",
     email: "",
   };
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, email, password } = this.state;
     const { _id } = this.props.user;
     PrivateService.editProfile(username, email, password, _id);
-    // axios
-    //   .post(`http://localhost:5000/api/private/${id}`, {
-    //     username,
-    //     email,
-    //     password,
-    //   })
-    //   .then(() => {
-    //     PrivateService.editProfile();
-    //   })
-    //   .catch((err) => console.log(err));
   };
+
+
   handleChange = (event) => {
     let { name, value } = event.target;
     this.setState(() => ({ [name]: value }));
   };
+
+
   render() {
     console.log(this.props);
     return (
@@ -63,7 +55,5 @@ class EditProfile extends Component {
     );
   }
 }
-// By wrapping EditProfile in withRouter,
-// we inject react-router props (match, location, history)
-// to the component. This will help us to access the Profile's id from the URL (this.props.match.params)
+
 export default withAuth(EditProfile);

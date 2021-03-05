@@ -8,17 +8,12 @@ class DictionaryService {
     });
   }
 
-  // getAllKanjis = async () => {
-  //   try {
-  //     await this.dictionary.get("/");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+
 
   getSearchResults = async () => {
     try {
-      let response = await this.dictionary.get(`/`);
+      let response = await this.dictionary
+      .get(`/`);
       return response.data;
     } catch (err) {
       console.log(err);
