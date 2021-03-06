@@ -6,11 +6,15 @@ class Dictionary extends Component {
     query: "",
     result: [],
   };
+
+
   handleSearchInput = (event) => {
     let query = event.target.value;
     this.setState(() => ({ query: query }));
     this.searchResults(query);
   };
+
+
   searchResults = async (query) => {
     try {
       let response = await dictionaryService.getSearchResults();
@@ -22,12 +26,16 @@ class Dictionary extends Component {
       this.setState({ result: [findMeaning] });
     } catch (err) {}
   };
+
+
   handleSubmit = (event) => {
     console.log("hello");
     event.preventDefault();
     this.searchResults();
     this.setState({ result: {}, query: "" });
   };
+
+
   render() {
     console.log(this.state);
     // let calling = async () => {
@@ -45,7 +53,7 @@ class Dictionary extends Component {
     return (
       <div>
         <div>
-          <form onSubmit={this.handleSubmit}>
+          <form >
             <input
               placeholder="search for kanjis"
               name="search"
