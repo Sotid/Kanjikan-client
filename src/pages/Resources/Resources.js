@@ -4,6 +4,7 @@ import Music from "../../components/Music/Music";
 import Syllabaries from "../../components/Syllabaries/Syllabaries";
 import Blogs from "../../components/Blogs/Blogs";
 import Videos from "../../components/Videos/Videos";
+import Translate from "../../components/Translate/Translate";
 
 class Resources extends React.Component {
   state = {
@@ -17,7 +18,6 @@ class Resources extends React.Component {
   toggleNews = () => {
     this.setState({ showNews: !this.state.showNews });
   };
-
   toggleMusic = () => {
     this.setState({ showMusic: !this.state.showMusic });
   };
@@ -58,6 +58,9 @@ class Resources extends React.Component {
           <p>Recommended Blogs</p>
           <button onClick={this.toggleBlogs}>Show More</button>
           {this.state.showBlogs ? <Blogs /> : null}
+        </div>
+        <div>
+          <Translate />
         </div>
       </div>
     );

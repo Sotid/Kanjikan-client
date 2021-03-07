@@ -12,11 +12,9 @@ class Music extends React.Component {
         "http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=japan&api_key=d620d7726ae86f44b956c1a641beeb9f&format=json"
       );
       if (res) {
-        console.log(res);
-        let findMeaning = res.find((data) => {
-          return data.topartists;
-        });
-        this.setState({ music: [findMeaning], isReady: true });
+        const { data } = res;
+        this.setState({ music: data, isReady: true });
+        console.log(data);
       }
     } catch (err) {
       console.log(err);
@@ -30,8 +28,15 @@ class Music extends React.Component {
     console.log(music);
     return (
       <div>
-        <h1>Hello</h1>
-        {isReady && music.topartists}
+        <h1>Music</h1>
+        {isReady &&
+          music.topartists.artist.map((oneArtist) => (
+            <div>
+              <a href={oneArtist.url} target="_blank">
+                {oneArtist.name}{" "}
+              </a>
+            </div>
+          ))}
       </div>
     );
   }
