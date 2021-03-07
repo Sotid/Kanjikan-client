@@ -22,7 +22,8 @@ button.navbar-button {
 
 #home-btn, 
 #dictionary,
-#myprofile {
+#myprofile,
+#resources {
   color: white;
   text-decoration: none;
 }

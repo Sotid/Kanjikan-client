@@ -8,10 +8,13 @@ import Login from "./pages/Login/Login";
 import Private from "./pages/Private/Private";
 import Dictionary from "./pages/Dictionary/Dictionary";
 import KanjiDetails from "./pages/KanjiDetails/Kanji.details";
+import Resources from "./pages/Resources/Resources"
+
 // Components
 import Navbar from "./components/Navbar/Navbar";
 import AnonRoute from "./components/AnonRoute/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+
 class App extends Component {
   render() {
     return (
@@ -19,6 +22,9 @@ class App extends Component {
         <Navbar />
         <Switch>
           <PrivateRoute exact path="/lessons" component={Home} />
+          <PrivateRoute exact path="/resources" component={Resources} />
+
+
           <PrivateRoute exact path="/lessons/:id" component={KanjiDetails} />
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />

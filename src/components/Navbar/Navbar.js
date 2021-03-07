@@ -18,6 +18,10 @@ class Navbar extends Component {
           <h3>My profile</h3>
         </Link>
 
+        <Link to={"/resources"} id="resources">
+          <h3>Resources</h3>
+        </Link>
+
         {this.props.isLoggedIn ? (
           <>
             <p>username: {this.props.user && this.props.user.username}</p>
