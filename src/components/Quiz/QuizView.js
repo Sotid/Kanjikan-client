@@ -1,7 +1,7 @@
 import React from "react";
 import { QuizData } from "./QuizData";
 import "./QuizView.css";
-
+import Start from "./Start";
 class Quizview extends React.Component {
   state = {
     userAnswer: null,
@@ -21,7 +21,7 @@ class Quizview extends React.Component {
       };
     });
   };
-  nextQuestionHande = () => {
+  nextQuestionHandle = () => {
     const { userAnswer, answer, score } = this.state;
     this.setState({
       currentIndex: this.state.currentIndex + 1,
@@ -61,6 +61,7 @@ class Quizview extends React.Component {
       });
     }
   };
+  restartQuiz = (event) => {};
   render() {
     if (this.state.quizEnd) {
       return (
@@ -76,6 +77,7 @@ class Quizview extends React.Component {
               </li>
             ))}
           </ul>
+          <button onClick={() => this.loadQuiz}>Restart</button>
         </div>
       );
     }
@@ -94,7 +96,7 @@ class Quizview extends React.Component {
         ))}
         {/* //When quiz reaches end */}
         {this.state.currentIndex < QuizData.length - 1 && (
-          <button onClick={this.nextQuestionHande}>Next</button>
+          <button onClick={this.nextQuestionHandle}>Next</button>
         )}
         {this.state.currentIndex === QuizData.length - 1 && (
           <button className="finish-btn" onClick={this.finishHandle}>

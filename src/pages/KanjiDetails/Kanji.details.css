@@ -1,71 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap");
+
+body {
+}
+.card {
+  text-align: center;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
 .flip-container {
-    perspective: 1000;
-    border: 1px solid #d9d9d9;
-    /* Para Firefox - IE10+ debemos agregar propiedades extras */
-    -moz-transform-style: preserve-3d;
-    -moz-transform: perspective(1000px);
-    -ms-transform-style: preserve-3d;
-    -ms-transform: perspective(1000px);
-  }
-  .flip-container,
-  .front,
-  .back {
-    width: 280px;
-    height: 320px;
-  }
-  /* preserve-3d: Indicamos que todo elemento hijo del div flipper estara en un espacio 3D XYZ  */
-  .flipper {
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    position: relative;
-  }
-  .front,
-  .back {
-    /* Backface: Nos permite ocultar la parte posterior de los elementos html */
-    /* en este caso FRONT - BACK */
-    backface-visibility: hidden;
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  /* FRONT: eje Y = 0   */
-  .front {
-    transform: rotateY(0deg);
-    background: #bcea67;
-  }
-  /* BACK: eje Y = -180, se mantendra oculto */
-  .back {
-    transform: rotateY(-180deg);
-    background: #ffdd54;
-  }
-  .flip-container:hover .front {
-    transform: rotateY(180deg);
-  }
-  .flip-container:hover .back {
-    transform: rotateY(0deg);
-  }
-  /* Toggle - Moviles */
-  .flip-container.hover .front {
-    transform: rotateY(180deg);
-  }
-  .flip-container.hover .back {
-    transform: rotateY(0deg);
-  }
-  /* Flip Vertical */
-  .vertical.flip-container {
-    position: relative;
-  }
-  .vertical.flip-container .flipper {
-    transform-origin: 100% 200px;
-  }
-  .vertical .back {
-    transform: rotateX(180deg);
-  }
-  .vertical.flip-container:hover .back {
-    transform: rotateX(0deg);
-  }
-  .vertical.flip-container:hover .front {
-    transform: rotateX(180deg);
-  }
+  perspective: 1000;
+  border: 1px solid #d9d9d9;
+  margin: 2rem 0;
+  -moz-transform-style: preserve-3d;
+  -moz-transform: perspective(1000px);
+  -ms-transform-style: preserve-3d;
+  -ms-transform: perspective(1000px);
+  background: url(https://i.postimg.cc/YSYPm16x/background.png) no-repeat;
+  background-size: cover;
+  width: 40vw;
+  height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .flip-container,
+.front,
+.back {
+
+} */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 80%;
+  height: 80%;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+}
+.front,
+.back {
+  backface-visibility: hidden;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.front {
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(-180deg);
+}
+.flip-container:hover .front {
+  transform: rotateY(180deg);
+}
+.flip-container:hover .back {
+  transform: rotateY(0deg);
+}
+
+.flip-container.hover .front {
+  transform: rotateY(180deg);
+}
+.flip-container.hover .back {
+  transform: rotateY(0deg);
+}
+
+.vertical.flip-container {
+  position: relative;
+}
+.vertical.flip-container .flipper {
+  transform-origin: 100% 200px;
+}
+.vertical .back {
+  transform: rotateX(180deg);
+}
+.vertical.flip-container:hover .back {
+  transform: rotateX(0deg);
+}
+.vertical.flip-container:hover .front {
+  transform: rotateX(180deg);
+}
+h1 {
+  font-size: 6rem;
+  font-family: "Sawarabi Mincho", sans-serif;
+  line-height: 0.8;
+}
