@@ -1,30 +1,22 @@
-
 import React, { Component } from "react";
 import PrivateService from "../../services/private.service";
 import { withAuth } from "./../../context/auth.context";
-
-
 class EditProfile extends Component {
   state = {
     username: "",
     password: "",
     email: "",
   };
-
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, email, password } = this.state;
     const { _id } = this.props.user;
     PrivateService.editProfile(username, email, password, _id);
   };
-
-
   handleChange = (event) => {
     let { name, value } = event.target;
     this.setState(() => ({ [name]: value }));
   };
-
-
   render() {
     console.log(this.props);
     return (
@@ -55,5 +47,4 @@ class EditProfile extends Component {
     );
   }
 }
-
 export default withAuth(EditProfile);

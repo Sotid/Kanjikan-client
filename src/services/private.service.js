@@ -13,7 +13,7 @@ class PrivateService {
       withCredentials: true,
     });
   }
- 
+
   getOneUser = async (
     username,
     password,
@@ -23,8 +23,7 @@ class PrivateService {
     userId
   ) => {
     try {
-    let response = await this.private
-      .get(`/${userId}`, {
+      let response = await this.private.get(`/${userId}`, {
         username,
         password,
         email,
@@ -32,45 +31,47 @@ class PrivateService {
         lessonsCompleted,
       });
       return response.data;
-    }catch (err) {
-    console.log(err);
-  }
-}
-
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   editProfile = async (username, email, password, userId) => {
     try {
-    console.log(username, email, password, userId)
-    let response = await this.private
-      .post(generatePath("/:id", {id: userId}), { username, email, password })
+      console.log(username, email, password, userId);
+      let response = await this.private.post(
+        generatePath("/:userId/edit", { userId: userId }),
+        { username, email, password }
+      );
       return response.data;
     } catch (err) {
       console.log(err);
     }
-    };
+  };
 
-  addToBookmarks = async (id) => {
+  addToBookmarks = async (kanjiId, userId) => {
     try {
-    let response = await this.private
-      .post(`/${id}/add`, { id })
+      let response = await this.private.post(
+        generatePath("/:userId/edit"),
+        { kanjiId },
+        { userId }
+      );
       return response.data;
     } catch (err) {
       console.log(err);
     }
-    };
+  };
 
   deleteFromBookmarks = async (id) => {
     try {
-      let response = await this.private
-      .post(`/${id}/delete`, { id })
+      let response = await this.private.post(`/${id}/delete`, { id });
       return response.data;
     } catch (err) {
       console.log(err);
     }
-    };
-  }
+  };
+}
 
 const privateService = new PrivateService();
 
 export default privateService;
-

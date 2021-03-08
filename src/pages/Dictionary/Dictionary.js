@@ -39,9 +39,14 @@ class Dictionary extends Component {
   };
 
   addKanjiUser = (kanjiId, userId) => {
-    axios.post(generatePath("/private/add/:kanjiId", { kanjiId: kanjiId }), {
-      userId,
-    });
+    privateService.addToBookmarks(
+      { kanjiId: this.state.result._id },
+      this.props.user._id
+    );
+    console.log(this.state.result);
+    // axios.post(generatePath("/private/add/:kanjiId", { kanjiId: kanjiId }), {
+    //   userId,
+    // });
   };
 
   render() {
