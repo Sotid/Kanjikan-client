@@ -3,6 +3,7 @@ import { withAuth } from "../../context/auth.context";
 import dictionaryService from "./../../services/dictionary.service";
 import axios from "axios";
 import { generatePath } from "react-router-dom";
+import privateService from "./../../services/private.service"
 
 class Dictionary extends Component {
   constructor(props) {

@@ -17,4 +17,10 @@ export const QuizData = [
     choices: ["flower", "moon", "rain", "left"],
     answer: "flower",
   },
+  {
+    id: 2,
+    question: "校",
+    choices: ["school", "moon", "rain", "left"],
+    answer: "school",
+  },
 ];

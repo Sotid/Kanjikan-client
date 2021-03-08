@@ -15,13 +15,13 @@ class Private extends Component {
       <div className="user-details">
         <h2>Welcome {this.props.user && this.props.user.username}</h2>
         <div>
-          <p>Username: {this.props.user.username}</p>
-          <p>Email: {this.props.user.email}</p>
+          <p>Username: {this.props.user.username}</p> 
+           <p>Email: {this.props.user.email}</p>
           <button onClick={this.toggleEdit}>Edit</button>
           {this.state.showEdit ? <EditProfile /> : null}
         </div>
         <div className="bookmarks-container">
-          {this.props.user.bookmarks.map((data) => {
+          {this.props.user && this.props.user.bookmarks.map((data) => {
             return (
               <div key={data._id} className="bookmark">
                 <Link to={`/kanji/${data._id}`}>
