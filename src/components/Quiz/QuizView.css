@@ -1,0 +1,14 @@
+/* The list of options */
+.choices {
+  padding: 8px;
+  color: red;
+  border: 2px solid #000;
+  cursor: pointer;
+  background-color: cornsilk;
+}
+.select {
+  background-color: rgb(0, 255, 200);
+}
+.finish-btn {
+  border: 2px solid black;
+}

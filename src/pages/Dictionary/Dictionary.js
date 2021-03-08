@@ -1,19 +1,23 @@
 import React, { Component } from "react";
+import { withAuth } from "../../context/auth.context";
 import dictionaryService from "./../../services/dictionary.service";
 import axios from "axios";
-class Dictionary extends Component {
-  state = {
-    query: "",
-    result: [],
-  };
+import { generatePath } from "react-router-dom";
 
+class Dictionary extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      query: "",
+      result: [],
+    };
+  }
 
   handleSearchInput = (event) => {
     let query = event.target.value;
     this.setState(() => ({ query: query }));
     this.searchResults(query);
   };
-
 
   searchResults = async (query) => {
     try {
@@ -27,7 +31,6 @@ class Dictionary extends Component {
     } catch (err) {}
   };
 
-
   handleSubmit = (event) => {
     console.log("hello");
     event.preventDefault();
@@ -35,25 +38,19 @@ class Dictionary extends Component {
     this.setState({ result: {}, query: "" });
   };
 
+  addKanjiUser = (kanjiId, userId) => {
+    axios.post(generatePath("/private/add/:kanjiId", { kanjiId: kanjiId }), {
+      userId,
+    });
+  };
 
   render() {
     console.log(this.state);
-    // let calling = async () => {
-    //   try {
-    //       let all = await axios.get("http://localhost:5000/api/dictionary");
-    //       this.setState({
-    //           allKanjis: all.data
-    //       })
-    //   } catch(err) {
-    //       console.error(err);
-    //   }
-    // }
-    // calling()
-    // const { allKanjis } = this.state;
+
     return (
       <div>
         <div>
-          <form >
+          <form>
             <input
               placeholder="search for kanjis"
               name="search"
@@ -62,34 +59,30 @@ class Dictionary extends Component {
               onChange={this.handleSearchInput}
             />
             <button onSubmit={this.handleSubmit}> Search </button>
-            <div>
-              {this.state.result.map((data, key) => {
-                return (
-                  data && (
-                    <div key={key}>
-                      {data.kanji}
-                      {data.meanings}
-                    </div>
-                  )
-                );
-              })}
-             
-            </div>
           </form>
-          {/* {allKanjis && allKanjis.map((kanji) => {
-            return (
-              <div key={kanji.unicode} className="kanji">
-                <p>{kanji.kanji}</p>
-                <p>Grade:{kanji.grade}</p>
-                <p>Onyomi: {kanji.on_readings}</p>
-                <p>Kunyomi: {kanji.kun_readings}</p>
-                <p>{kanji.meanings}</p>
-              </div>
-            );
-          })} */}
+          <div>
+            {this.state.result.map((data, key) => {
+              return (
+                data && (
+                  <div key={key}>
+                    {data.kanji}
+                    {data.meanings}
+                    {data._id}
+                    <button
+                      onClick={() =>
+                        this.addKanjiUser(data._id, this.props.user._id)
+                      }
+                    >
+                      Add Kanji to User
+                    </button>
+                  </div>
+                )
+              );
+            })}
+          </div>
         </div>
       </div>
     );
   }
 }
-export default Dictionary;
+export default withAuth(Dictionary);

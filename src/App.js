@@ -8,7 +8,8 @@ import Login from "./pages/Login/Login";
 import Private from "./pages/Private/Private";
 import Dictionary from "./pages/Dictionary/Dictionary";
 import KanjiDetails from "./pages/KanjiDetails/Kanji.details";
-import Resources from "./pages/Resources/Resources"
+import Resources from "./pages/Resources/Resources";
+import Quiz from "./pages/QuizPage/QuizPage";
 
 // Components
 import Navbar from "./components/Navbar/Navbar";
@@ -24,12 +25,12 @@ class App extends Component {
           <PrivateRoute exact path="/lessons" component={Home} />
           <PrivateRoute exact path="/resources" component={Resources} />
 
-
           <PrivateRoute exact path="/lessons/:id" component={KanjiDetails} />
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/private/" component={Private} />
           <PrivateRoute exact path="/dictionary" component={Dictionary} />
+          <PrivateRoute exact path="/quiz" component={Quiz} />
         </Switch>
       </div>
     );

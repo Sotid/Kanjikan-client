@@ -81,7 +81,6 @@ import React, { Component } from "react";
 import lessonsService from "../../services/lessons.service";
 import ReactCardFlip from "react-card-flip";
 import axios from "axios";
-import KanjiCard from "../../components/KanjiCard/KanjiCard";
 const spinnerURL = "https://media1.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif";
 class SingleKanji extends React.Component {
   constructor() {
@@ -127,14 +126,6 @@ class SingleKanji extends React.Component {
               <div>
                 <h1> {singleKanji.kanji}</h1>
                 This is the front of the card.
-                <form
-                  method="POST"
-                  onSubmit={this.handleSubmit(singleKanji._id)}
-                >
-                  <button class="bookmarks-btn" name="bookmarks">
-                    Bookmarks
-                  </button>
-                </form>
                 <button onClick={this.handleClick}>Click to flip</button>
               </div>
               <div>

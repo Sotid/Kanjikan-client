@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-
 class Music extends React.Component {
   state = {
     music: [],
@@ -30,13 +29,16 @@ class Music extends React.Component {
       <div>
         <h1>Music</h1>
         {isReady &&
-          music.topartists.artist.map((oneArtist) => (
-            <div>
-              <a href={oneArtist.url} target="_blank">
-                {oneArtist.name}{" "}
-              </a>
-            </div>
-          ))}
+          music.topartists.artist
+            .sort((a, b) => b.name.localeCompare(a.name))
+            .splice(0, 16)
+            .map((oneArtist) => (
+              <div>
+                <a href={oneArtist.url} target="_blank">
+                  {oneArtist.name}
+                </a>
+              </div>
+            ))}
       </div>
     );
   }

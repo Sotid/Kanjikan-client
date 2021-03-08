@@ -5,23 +5,31 @@ import { withAuth } from "./../../context/auth.context";
 class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar">
-        <Link to={"/lessons"} id="home-btn">
-          <h4>Home</h4>
-        </Link>
-      
-        <Link to={"/dictionary"} id="dictionary">
-          <h3>Dictionary</h3>
-        </Link>
+      <nav>
+        <img className="logo" src="https://i.postimg.cc/fL88FzDF/logo.png" />
+        <div>
+          <ul className="nav-list">
+            <Link to={"/lessons"} className="nav-text">
+              <li>Home</li>
+            </Link>
 
-        <Link to={"/private"} id="myprofile">
-          <h3>My profile</h3>
-        </Link>
+            <Link to={"/dictionary"} className="nav-text">
+              <li>Dictionary</li>
+            </Link>
 
-        <Link to={"/resources"} id="resources">
-          <h3>Resources</h3>
-        </Link>
+            <Link to={"/private"} className="nav-text">
+              <li>My profile</li>
+            </Link>
 
+            <Link to={"/resources"} className="nav-text">
+              <li>Resources</li>
+            </Link>
+
+            <Link to={"/quiz"} className="nav-text">
+              <li>Quiz</li>
+            </Link>
+          </ul>
+        </div>
         {this.props.isLoggedIn ? (
           <>
             <p>username: {this.props.user && this.props.user.username}</p>
@@ -29,7 +37,6 @@ class Navbar extends Component {
           </>
         ) : (
           <>
-          
             <Link to="/login">
               <button className="navbar-button">Login</button>{" "}
             </Link>
