@@ -20,6 +20,7 @@ class Home extends React.Component {
     const { lessons } = this.state;
     console.log(this.state.lessons);
     return (
+  
       <div>
         {lessons.map((allLessons) => (
           <div key={allLessons._id}>

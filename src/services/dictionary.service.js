@@ -13,7 +13,7 @@ class DictionaryService {
   getSearchResults = async () => {
     try {
       let response = await this.dictionary
-      .post("/api/dictionary");
+      .get("/api/dictionary");
       return response.data;
     } catch (err) {
       console.log(err);
