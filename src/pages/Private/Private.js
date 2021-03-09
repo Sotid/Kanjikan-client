@@ -13,10 +13,10 @@ class Private extends Component {
     console.log(this.props.user);
     return (
       <div className="user-details">
-        <h2>Welcome {this.props.user && this.props.user.username}</h2>
+        <h2>Welcome{this.props.user && this.props.user.username}</h2>
         <div>
-          <p>Username: {this.props.user.username}</p> 
-           <p>Email: {this.props.user.email}</p>
+          {/* <p>Username: {this.props.user.username}</p> 
+           <p>Email: {this.props.user.email}</p> */}
           <button onClick={this.toggleEdit}>Edit</button>
           {this.state.showEdit ? <EditProfile /> : null}
         </div>

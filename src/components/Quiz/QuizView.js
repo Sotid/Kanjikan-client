@@ -3,6 +3,7 @@ import { QuizData } from "./QuizData";
 import "./QuizView.css";
 import Start from "./Start";
 class Quizview extends React.Component {
+ 
   state = {
     userAnswer: null,
     currentIndex: 0,
@@ -10,7 +11,13 @@ class Quizview extends React.Component {
     quizEnd: false,
     score: 0,
     disabled: true,
+    show:false
   };
+
+
+
+
+   //Get index and start Quiz
 
   loadQuiz = () => {
     const { currentIndex } = this.state; //get the current index
@@ -22,11 +29,14 @@ class Quizview extends React.Component {
       };
     });
   };
+
+  //Pass to the next question - pass to next index
   nextQuestionHandle = () => {
     const { userAnswer, answer, score } = this.state;
     this.setState({
       currentIndex: this.state.currentIndex + 1,
     });
+
     //Check for correct answer and increment score
     if (userAnswer === answer) {
       this.setState({
@@ -34,9 +44,13 @@ class Quizview extends React.Component {
       });
     }
   };
+
+  
   componentDidMount() {
     this.loadQuiz();
   }
+
+  //Updating component
   componentDidUpdate(prevProps, prevState) {
     const { currentIndex } = this.state;
     if (this.state.currentIndex !== prevState.currentIndex) {
@@ -50,12 +64,15 @@ class Quizview extends React.Component {
       });
     }
   }
+
+  //Confirm answers
   checkAnswer = (answer) => {
     this.setState({
       userAnswer: answer,
     });
   };
 
+  //Finish quiz when questions finished
   finishHandle = () => {
     if (this.state.currentIndex === QuizData.length - 1) {
       this.setState({
@@ -64,8 +81,17 @@ class Quizview extends React.Component {
     }
   };
 
-  restartQuiz = (event) => {};
+  restartQuiz = () => {
+    this.setState({
+      show: true,
+    });
+  };
+
+
+
   render() {
+
+    //End screen
     if (this.state.quizEnd) {
       return (
         <div>
@@ -80,11 +106,19 @@ class Quizview extends React.Component {
               </li>
             ))}
           </ul>
-          <button onClick={() => this.loadQuiz}>Restart</button>
+
+          {/* Restart Quiz */}
+          <div>
+          <button onClick={() => this.restartQuiz}>Restart</button>
+          {this.state.show ? <Start /> : null}
+        </div>
+
         </div>
       );
     }
     return (
+
+      //Quiz view
       <div>
         <h1>{this.state.question}</h1>
         {this.state.choices.map((choice) => (
@@ -99,12 +133,12 @@ class Quizview extends React.Component {
           </p>
         ))}
 
-        {/* //When quiz reaches end */}
         {this.state.currentIndex < QuizData.length - 1 && 
           <button 
             onClick={this.nextQuestionHandle}>Next</button>
         }
         
+        {/* Shows answers */}
         {this.state.currentIndex === QuizData.length - 1 && (
           <button className="finish-btn" onClick={this.finishHandle}>
             Finish
