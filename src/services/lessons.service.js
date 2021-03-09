@@ -3,7 +3,7 @@ import axios from "axios";
 class LessonsService {
   constructor() {
     this.lessons = axios.create({
-      baseURL: "http://localhost:5000/api/lessons",
+      baseURL: "http://localhost:5000",
       withCredentials: true,
     });
   }
@@ -11,7 +11,7 @@ class LessonsService {
   getAllLessons = async () => {
     try {
     let response = await this.lessons
-    .get("/")
+    .get("/api/lessons")
     return response.data;
   } catch (err) {
           console.log(err);
@@ -22,7 +22,7 @@ class LessonsService {
   getOneLesson = async (id) => {
     try {
     let response = await this.lessons
-    .get(`/${id}`)
+    .get(`/api/lessons/${id}`)
     return response.data;
   } catch (err) {
     console.log(err);
@@ -33,7 +33,7 @@ class LessonsService {
   getOneQuiz = async (id) => {
     try {
     let response = await this.lessons
-    .get(`/${id}/quiz`)
+    .get(`/api/lessons/${id}/quiz`)
     return response.data;
   } catch (err) {
     console.log(err);

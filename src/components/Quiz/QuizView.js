@@ -11,6 +11,7 @@ class Quizview extends React.Component {
     score: 0,
     disabled: true,
   };
+
   loadQuiz = () => {
     const { currentIndex } = this.state; //get the current index
     this.setState(() => {
@@ -54,6 +55,7 @@ class Quizview extends React.Component {
       userAnswer: answer,
     });
   };
+
   finishHandle = () => {
     if (this.state.currentIndex === QuizData.length - 1) {
       this.setState({
@@ -61,6 +63,7 @@ class Quizview extends React.Component {
       });
     }
   };
+
   restartQuiz = (event) => {};
   render() {
     if (this.state.quizEnd) {
@@ -85,19 +88,23 @@ class Quizview extends React.Component {
       <div>
         <h1>{this.state.question}</h1>
         {this.state.choices.map((choice) => (
-          <p
-            className={`choices ${
-              this.state.userAnswer === this.state.choices ? `select` : null
-            }`}
-            onClick={() => this.checkAnswer(choice)}
-          >
+          <p key={choice.id} 
+                className={`options
+                ${this.userAnswer === choice ? `selected` : null}
+                `}
+                onClick= {() => this.checkAnswer(choice)}
+
+                >
             {choice}
           </p>
         ))}
+
         {/* //When quiz reaches end */}
-        {this.state.currentIndex < QuizData.length - 1 && (
-          <button onClick={this.nextQuestionHandle}>Next</button>
-        )}
+        {this.state.currentIndex < QuizData.length - 1 && 
+          <button 
+            onClick={this.nextQuestionHandle}>Next</button>
+        }
+        
         {this.state.currentIndex === QuizData.length - 1 && (
           <button className="finish-btn" onClick={this.finishHandle}>
             Finish

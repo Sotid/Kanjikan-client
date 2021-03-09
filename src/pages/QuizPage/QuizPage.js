@@ -1,9 +1,9 @@
 import React from "react";
-import Quizview from "../../components/Quiz/QuizView";
+import Start from "../../components/Quiz/Start";
 function Quiz() {
   return (
     <div>
-      <Quizview />
+      <Start />
     </div>
   );
 }

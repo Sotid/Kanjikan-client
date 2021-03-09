@@ -9,7 +9,7 @@ class PrivateService {
     // this.api  is a reusable axios request base containing the base url (baseURL)
     // of the API and the Headers options ( `withCredentials: true` )
     this.private = axios.create({
-      baseURL: "http://localhost:5000/api/private",
+      baseURL: "http://localhost:5000",
       withCredentials: true,
     });
   }
@@ -23,7 +23,7 @@ class PrivateService {
     userId
   ) => {
     try {
-      let response = await this.private.get(`/${userId}`, {
+      let response = await this.private.get(`/api/private/${userId}`, {
         username,
         password,
         email,
@@ -40,7 +40,7 @@ class PrivateService {
     try {
       console.log(username, email, password, userId);
       let response = await this.private.post(
-        generatePath("/:userId/edit", { userId: userId }),
+        generatePath("/api/private/:userId/edit", { userId: userId }),
         { username, email, password }
       );
       return response.data;
@@ -51,11 +51,8 @@ class PrivateService {
 
   addToBookmarks = async (kanjiId, userId) => {
     try {
-      let response = await this.private.post(
-        generatePath("/:userId/edit"),
-        { kanjiId },
-        { userId }
-      );
+      let response = await this.private.post(`/api/private/${kanjiId}`,
+        { kanjiId} )
       return response.data;
     } catch (err) {
       console.log(err);
@@ -64,7 +61,7 @@ class PrivateService {
 
   deleteFromBookmarks = async (id) => {
     try {
-      let response = await this.private.post(`/${id}/delete`, { id });
+      let response = await this.private.post(`/api/private/${id}/delete`, { id });
       return response.data;
     } catch (err) {
       console.log(err);

@@ -23,35 +23,33 @@ class Dictionary extends Component {
   searchResults = async (query) => {
     try {
       let response = await dictionaryService.getSearchResults();
-      console.log(response);
       // this.setState({results: response})
       let findMeaning = response.find((data) => {
         return data.meanings.includes(query);
       });
       this.setState({ result: [findMeaning] });
+      console.log(this.state.result)
     } catch (err) {}
   };
 
   handleSubmit = (event) => {
-    console.log("hello");
     event.preventDefault();
     this.searchResults();
     this.setState({ result: {}, query: "" });
   };
 
   addKanjiUser = (kanjiId, userId) => {
+    console.log(kanjiId)
     privateService.addToBookmarks(
-      { kanjiId: this.state.result._id },
+      { kanjiId: kanjiId },
       this.props.user._id
     );
-    console.log(this.state.result);
     // axios.post(generatePath("/private/add/:kanjiId", { kanjiId: kanjiId }), {
     //   userId,
     // });
   };
 
   render() {
-    console.log(this.state);
 
     return (
       <div>
@@ -70,6 +68,7 @@ class Dictionary extends Component {
             {this.state.result.map((data, key) => {
               return (
                 data && (
+
                   <div key={key}>
                     {data.kanji}
                     {data.meanings}
@@ -82,9 +81,11 @@ class Dictionary extends Component {
                       Add Kanji to User
                     </button>
                   </div>
+
                 )
               );
             })}
+
           </div>
         </div>
       </div>
