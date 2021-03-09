@@ -3,7 +3,7 @@ import axios from "axios";
 class AuthService {
   constructor() {
     this.auth = axios.create({
-      baseURL: "http://localhost:5000",
+      baseURL: process.env.REACT_APP_API_URL,
       withCredentials: true
     });
   }
@@ -41,12 +41,13 @@ class AuthService {
 
 
   me() {
-    const pr = this.auth
+   const pr = this.auth
       .get("/auth/me")
-      .then((response) => response.data);
-
+      .then((response) => response.data)
+      .catch(err => console.log(err))
     return pr;
   }
+  
 }
 
 

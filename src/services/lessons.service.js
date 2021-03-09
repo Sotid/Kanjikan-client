@@ -3,7 +3,7 @@ import axios from "axios";
 class LessonsService {
   constructor() {
     this.lessons = axios.create({
-      baseURL: "http://localhost:5000",
+      baseURL: process.env.REACT_APP_API_URL,
       withCredentials: true,
     });
   }

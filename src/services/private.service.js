@@ -9,7 +9,7 @@ class PrivateService {
     // this.api  is a reusable axios request base containing the base url (baseURL)
     // of the API and the Headers options ( `withCredentials: true` )
     this.private = axios.create({
-      baseURL: "http://localhost:5000",
+      baseURL: process.env.REACT_APP_API_URL,
       withCredentials: true,
     });
   }
@@ -50,18 +50,23 @@ class PrivateService {
   };
 
   addToBookmarks = async (kanjiId, userId) => {
+    const kanji = kanjiId.kanjiId;
     try {
-      let response = await this.private.post(`/api/private/${kanjiId}`,
-        { kanjiId} )
+      let response = await this.private.post(`/api/private/add/${kanji}`,
+        { userId } )
       return response.data;
     } catch (err) {
       console.log(err);
     }
   };
 
-  deleteFromBookmarks = async (id) => {
+  deleteFromBookmarks = async (kanjiId, userId) => {
+    const kanji = kanjiId.kanjiId;
+    
     try {
-      let response = await this.private.post(`/api/private/${id}/delete`, { id });
+      let response = await this.private.post(`/api/private/delete/${kanji}`, { userId });
+      console.log(kanji)
+
       return response.data;
     } catch (err) {
       console.log(err);

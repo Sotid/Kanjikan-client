@@ -3,7 +3,7 @@ import axios from "axios";
 class DictionaryService {
   constructor() {
     this.dictionary = axios.create({
-      baseURL: "http://localhost:5000",
+      baseURL: process.env.REACT_APP_API_URL,
       withCredentials: true,
     });
   }
@@ -13,7 +13,7 @@ class DictionaryService {
   getSearchResults = async () => {
     try {
       let response = await this.dictionary
-      .get("/api/dictionary");
+      .post("/api/dictionary");
       return response.data;
     } catch (err) {
       console.log(err);

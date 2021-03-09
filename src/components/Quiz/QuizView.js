@@ -11,7 +11,7 @@ class Quizview extends React.Component {
     quizEnd: false,
     score: 0,
     disabled: true,
-    show:false
+    // show:false
   };
 
 
@@ -82,9 +82,7 @@ class Quizview extends React.Component {
   };
 
   restartQuiz = () => {
-    this.setState({
-      show: true,
-    });
+  window.location.Reload()
   };
 
 
@@ -109,8 +107,8 @@ class Quizview extends React.Component {
 
           {/* Restart Quiz */}
           <div>
-          <button onClick={() => this.restartQuiz}>Restart</button>
-          {this.state.show ? <Start /> : null}
+          <button onClick={() => window.location.reload()}>Restart</button>
+          {/* {this.state.show ? <Start /> : null} */}
         </div>
 
         </div>

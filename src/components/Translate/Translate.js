@@ -11,7 +11,7 @@ class Translate extends React.Component {
   }
   translate() {
     axios
-      .post("http://localhost:5000/api/resources")
+      .post(`${process.env.REACT_APP_API_URL}/api/resources`)
       .then((data) => {
         this.setState({
           translated: data.data.data.translations[0].translatedText,
