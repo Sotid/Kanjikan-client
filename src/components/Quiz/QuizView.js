@@ -1,9 +1,9 @@
 import React from "react";
+import Quiz from "../../pages/QuizPage/QuizPage";
 import { QuizData } from "./QuizData";
 import "./QuizView.css";
 import Start from "./Start";
 class Quizview extends React.Component {
- 
   state = {
     userAnswer: null,
     currentIndex: 0,
@@ -11,17 +11,17 @@ class Quizview extends React.Component {
     quizEnd: false,
     score: 0,
     disabled: true,
-    // show:false
+    id: 0,
+    quizLength: 0,
   };
-
-
-
-
-   //Get index and start Quiz
-
+  //Get index and start Quiz
+  shuffleArray = () => {
+    return QuizData.sort(() => Math.random() - 0.5);
+  };
   loadQuiz = () => {
     const { currentIndex } = this.state; //get the current index
     this.setState(() => {
+      this.shuffleArray();
       return {
         question: QuizData[currentIndex].question,
         choices: QuizData[currentIndex].choices,
@@ -29,14 +29,15 @@ class Quizview extends React.Component {
       };
     });
   };
-
   //Pass to the next question - pass to next index
   nextQuestionHandle = () => {
     const { userAnswer, answer, score } = this.state;
+    const random = Math.floor(Math.random() * QuizData.length);
     this.setState({
       currentIndex: this.state.currentIndex + 1,
+      quizLength: this.state.quizLength + 1,
     });
-
+    console.log(this.state.quizLength);
     //Check for correct answer and increment score
     if (userAnswer === answer) {
       this.setState({
@@ -44,12 +45,9 @@ class Quizview extends React.Component {
       });
     }
   };
-
-  
   componentDidMount() {
     this.loadQuiz();
   }
-
   //Updating component
   componentDidUpdate(prevProps, prevState) {
     const { currentIndex } = this.state;
@@ -64,80 +62,65 @@ class Quizview extends React.Component {
       });
     }
   }
-
   //Confirm answers
   checkAnswer = (answer) => {
     this.setState({
       userAnswer: answer,
     });
   };
-
   //Finish quiz when questions finished
   finishHandle = () => {
-    if (this.state.currentIndex === QuizData.length - 1) {
+    if (this.state.quizLength === 10) {
       this.setState({
         quizEnd: true,
       });
     }
   };
-
   restartQuiz = () => {
-  window.location.Reload()
+    window.location.Reload();
   };
-
-
-
   render() {
-
     //End screen
     if (this.state.quizEnd) {
       return (
         <div>
-          <p>
-            Final score: {this.state.score} out of {QuizData.length}
-          </p>
+          <p>Final score: {this.state.score} out of 10</p>
           <p>Correct answers:</p>
           <ul>
-            {QuizData.map((item) => (
+            {QuizData.slice(0, 10).map((item) => (
               <li className="choices">
                 {item.question} {item.answer}
               </li>
             ))}
           </ul>
-
           {/* Restart Quiz */}
           <div>
-          <button onClick={() => window.location.reload()}>Restart</button>
-          {/* {this.state.show ? <Start /> : null} */}
-        </div>
-
+            <button onClick={() => window.location.reload()}>Restart</button>
+            {/* {this.state.show ? <Start /> : null} */}
+          </div>
         </div>
       );
     }
     return (
-
       //Quiz view
       <div>
         <h1>{this.state.question}</h1>
         {this.state.choices.map((choice) => (
-          <p key={choice.id} 
-                className={`options
+          <p
+            key={choice.id}
+            className={`options
                 ${this.userAnswer === choice ? "selected" : null}
                 `}
-                onClick= {() => this.checkAnswer(choice)}
-
-                >
+            onClick={() => this.checkAnswer(choice)}
+          >
             {choice}
           </p>
         ))}
-
-        {this.state.currentIndex < QuizData.length - 1 && 
-          <button 
-            onClick={this.nextQuestionHandle}>Next</button>
-        }
-        
+        {this.state.currentIndex < 10 && (
+          <button onClick={this.nextQuestionHandle}>Next</button>
+        )}
         {/* Shows answers */}
-        {this.state.currentIndex === QuizData.length - 1 && (
+        {this.state.quizLength === 10 && (
           <button className="finish-btn" onClick={this.finishHandle}>
             Finish
           </button>

@@ -8,24 +8,25 @@ class Home extends React.Component {
   state = {
     lessons: [],
   };
+
   componentDidMount() {
     this.loadLessons();
   }
+
   loadLessons = () => {
     lessonsService
       .getAllLessons()
       .then((lesson) => this.setState({ lessons: lesson }));
   };
+
   render() {
     const { lessons } = this.state;
-    console.log(this.state.lessons);
     return (
-  
       <div>
         {lessons.map((allLessons) => (
           <div key={allLessons._id}>
             <Link className="link" to={`/lessons/${allLessons._id}`}>
-              <h2 className="lessons">  {allLessons.name}</h2>
+              <h2 className="lessons"> {allLessons.name}</h2>
             </Link>
           </div>
         ))}

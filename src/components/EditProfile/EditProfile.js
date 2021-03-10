@@ -19,7 +19,6 @@ class EditProfile extends Component {
     this.setState(() => ({ [name]: value }));
   };
   render() {
-    console.log(this.props);
     return (
       <div className="edit-container">
         <div className="edit-form">
@@ -29,6 +28,7 @@ class EditProfile extends Component {
               className="slide"
               type="text"
               name="username"
+              placeholder={this.props.user.username}
               value={this.state.username}
               onChange={this.handleChange}
             />
@@ -37,6 +37,7 @@ class EditProfile extends Component {
               className="slide"
               name="email"
               type="email"
+              placeholder={this.props.user.email}
               value={this.state.email}
               onChange={this.handleChange}
             />
@@ -48,7 +49,9 @@ class EditProfile extends Component {
               value={this.state.password}
               onChange={this.handleChange}
             />
-            <button type="submit" value="Submit" />
+            <button type="submit" value="Submit">
+              Apply
+            </button>
           </form>
         </div>
       </div>

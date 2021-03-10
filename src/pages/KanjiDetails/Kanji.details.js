@@ -10,39 +10,52 @@ class SingleKanji extends Component {
       isReady: false,
     };
   }
+
   componentDidMount() {
     this.loadKanji();
   }
+
   loadKanji = () => {
     const lessonId = this.props.match.params.id;
     lessonsService.getOneLesson(lessonId).then((lesson) => {
       this.setState({ kanji: lesson, isReady: true });
     });
   };
+
   render() {
     const { kanji, isReady } = this.state;
     if (!isReady) return <img src={spinnerURL} alt="loading spinner" />;
     return (
       <div className="card">
         {kanji.kanji.map((singleKanji) => {
+          const {
+            kanji,
+            meanings,
+            grade,
+            stroke_count,
+            kun_readings,
+            on_readings,
+          } = singleKanji;
           return (
             <div
+              key={singleKanji._id}
               className="flip-container"
               ontouchstart="this.classList.toggle('hover');"
             >
               <div className="flipper">
                 <div className="front">
-                  <h1> {singleKanji.kanji}</h1>
-                  <p>{singleKanji.meanings}</p>
+                  <h1> {kanji}</h1>
+                  <p>{meanings}</p>
                 </div>
                 <div className="back">
+                  <h2> {kanji}</h2>
+
                   <ul>
-                    <h2> {singleKanji.kanji}</h2>
-                    <li> Difficulty level: {singleKanji.grade}</li>
-                    <li> Strokes: {singleKanji.stroke_count}</li>
-                    <li> Meanings: {singleKanji.meanings}</li>
-                    <li> Kunyomi: {singleKanji.kun_readings}</li>
-                    <li> Onyomi: {singleKanji.on_readings}</li>
+                    <li> Difficulty level: {grade}</li>
+                    <li> Strokes: {stroke_count}</li>
+                    <li> Meanings: {meanings}</li>
+                    <li> Kunyomi: {kun_readings}</li>
+                    <li> Onyomi: {on_readings}</li>
                   </ul>
                 </div>
               </div>

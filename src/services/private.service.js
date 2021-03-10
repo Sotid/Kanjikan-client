@@ -38,7 +38,6 @@ class PrivateService {
 
   editProfile = async (username, email, password, userId) => {
     try {
-      console.log(username, email, password, userId);
       let response = await this.private.post(
         generatePath("/api/private/:userId/edit", { userId: userId }),
         { username, email, password }
@@ -52,21 +51,20 @@ class PrivateService {
   addToBookmarks = async (kanjiId, userId) => {
     const kanji = kanjiId.kanjiId;
     try {
-      let response = await this.private.post(`/api/private/add/${kanji}`,
-        { userId } )
+      let response = await this.private.post(`/api/private/add/${kanji}`, {
+        userId,
+      });
       return response.data;
     } catch (err) {
       console.log(err);
     }
   };
 
-  deleteFromBookmarks = async ( kanjiId, userId) => {
-    
-    // console.log(kanji)
+  deleteFromBookmarks = async (kanjiId, userId) => {
     try {
-      let response = await this.private.post(`/api/private/delete/${kanjiId}`, {userId});
-      console.log(kanjiId)
-      // console.log(userId)
+      let response = await this.private.post(`/api/private/delete/${kanjiId}`, {
+        userId,
+      });
 
       return response.data;
     } catch (err) {

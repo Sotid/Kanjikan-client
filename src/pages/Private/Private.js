@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { withAuth } from "./../../context/auth.context";
-import { Link } from "react-router-dom";
 import EditProfile from "../../components/EditProfile/EditProfile";
 import privateService from "./../../services/private.service";
 import AuthService from "./../../services/auth.service";
+
 class Private extends Component {
   constructor(props) {
     super();
@@ -12,39 +12,36 @@ class Private extends Component {
       kanjis: [],
     };
   }
+
   toggleEdit = () => {
     this.setState({ showEdit: !this.state.showEdit });
   };
+
   componentDidMount = () => {
     const bookmarksArr = [...this.props.user.bookmarks];
     this.setState({ kanjis: bookmarksArr });
-    console.log(
-      this.state.kanjis,
-      "state kanjis",
-      bookmarksArr,
-      "bookmarks from props"
-    );
   };
+
   deleteKanji = (kanjiId, userId) => {
     privateService.deleteFromBookmarks(kanjiId, userId);
     const newArr = [...this.state.kanjis];
-    console.log(newArr);
+
     const filtered = newArr.filter((deleted) => {
-      console.log(deleted._id, "id deleted");
       return deleted._id !== kanjiId;
     });
-    console.log(filtered, "filtered");
+
     this.setState({ kanjis: filtered });
     this.props.user.bookmarks = filtered;
     AuthService.me();
   };
+
   render() {
     return (
       <div className="user-details">
-        <h2>Welcome{this.props.user && this.props.user.username}</h2>
+        <h2>Welcome {this.props.user && this.props.user.username}</h2>
         <div>
-          <p>Username: {this.props.user.username}</p> 
-           <p>Email: {this.props.user.email}</p>
+          <p>Username: {this.props.user.username}</p>
+          <p>Email: {this.props.user.email}</p>
           <button onClick={this.toggleEdit}>Edit</button>
           {this.state.showEdit ? <EditProfile /> : null}
         </div>
@@ -72,8 +69,9 @@ class Private extends Component {
                         <p>{meanings.map((meaning) => meaning + ", ")}</p>
                       </div>
                       <div className="back">
+                        <h2> {kanji}</h2>
+
                         <ul>
-                          <h2> {kanji}</h2>
                           <li> Difficulty level: {grade}</li>
                           <li> Strokes: {stroke_count}</li>
                           <li>
@@ -120,8 +118,9 @@ class Private extends Component {
                         <p>{meanings.map((meaning) => meaning + ", ")}</p>
                       </div>
                       <div className="back">
+                        <h2> {kanji}</h2>
+
                         <ul>
-                          <h2> {kanji}</h2>
                           <li> Difficulty level: {grade}</li>
                           <li> Strokes: {stroke_count}</li>
                           <li>

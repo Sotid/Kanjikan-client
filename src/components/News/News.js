@@ -29,7 +29,6 @@ class News extends React.Component {
   render() {
     const { news, isReady } = this.state;
 
-    console.log(news);
     return (
       <div>
         {this.state.isReady &&

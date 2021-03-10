@@ -8,12 +8,9 @@ class DictionaryService {
     });
   }
 
-
-
   getSearchResults = async () => {
     try {
-      let response = await this.dictionary
-      .get("/api/dictionary");
+      let response = await this.dictionary.get("/api/dictionary");
       return response.data;
     } catch (err) {
       console.log(err);

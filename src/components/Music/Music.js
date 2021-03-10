@@ -13,7 +13,6 @@ class Music extends React.Component {
       if (res) {
         const { data } = res;
         this.setState({ music: data, isReady: true });
-        console.log(data);
       }
     } catch (err) {
       console.log(err);
@@ -24,7 +23,7 @@ class Music extends React.Component {
   }
   render() {
     const { music, isReady } = this.state;
-    console.log(music);
+
     return (
       <div>
         <h1>Music</h1>
