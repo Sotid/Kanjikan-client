@@ -3,20 +3,19 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .App {
   padding: 20px;
 }
-
 nav {
   display: flex;
+  justify-content: space-between;
   padding: 0px 20px;
-  /* justify-content: space-between; */
-
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
   background: #ffffff;
   color: rgb(0, 0, 0);
 }
-
 button.navbar-button {
   display: flex;
   padding: 5px 20px;
@@ -26,13 +25,11 @@ button.navbar-button {
 }
 .logo {
   display: flex;
-
   top: 0;
   left: 0;
-  width: 10rem;
+  width: 8rem;
   height: auto;
 }
-
 .nav-list {
   list-style: none;
   display: flex;
@@ -43,4 +40,7 @@ button.navbar-button {
   color: rgb(0, 0, 0);
   text-decoration: none;
   margin: 0 3rem;
+}
+button-container {
+  float: right;
 }

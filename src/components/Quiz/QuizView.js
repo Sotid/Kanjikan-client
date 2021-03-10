@@ -122,7 +122,7 @@ class Quizview extends React.Component {
         {this.state.choices.map((choice) => (
           <p key={choice.id} 
                 className={`options
-                ${this.userAnswer === choice ? `selected` : null}
+                ${this.userAnswer === choice ? "selected" : null}
                 `}
                 onClick= {() => this.checkAnswer(choice)}
 

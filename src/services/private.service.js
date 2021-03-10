@@ -60,12 +60,13 @@ class PrivateService {
     }
   };
 
-  deleteFromBookmarks = async (kanjiId, userId) => {
-    const kanji = kanjiId.kanjiId;
+  deleteFromBookmarks = async ( kanjiId, userId) => {
     
+    // console.log(kanji)
     try {
-      let response = await this.private.post(`/api/private/delete/${kanji}`, { userId });
-      console.log(kanji)
+      let response = await this.private.post(`/api/private/delete/${kanjiId}`, {userId});
+      console.log(kanjiId)
+      // console.log(userId)
 
       return response.data;
     } catch (err) {

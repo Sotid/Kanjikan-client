@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap");
-
 body {
 }
 .card {
@@ -24,11 +23,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-/* .flip-container,
-.front,
-.back {
-
-} */
 .flipper {
   transition: 0.6s;
   transform-style: preserve-3d;
@@ -49,11 +43,9 @@ body {
   top: 0;
   width: 100%;
 }
-
 .front {
   transform: rotateY(0deg);
 }
-
 .back {
   transform: rotateY(-180deg);
 }
@@ -63,14 +55,12 @@ body {
 .flip-container:hover .back {
   transform: rotateY(0deg);
 }
-
 .flip-container.hover .front {
   transform: rotateY(180deg);
 }
 .flip-container.hover .back {
   transform: rotateY(0deg);
 }
-
 .vertical.flip-container {
   position: relative;
 }
@@ -91,3 +81,22 @@ h1 {
   font-family: "Sawarabi Mincho", sans-serif;
   line-height: 0.8;
 }
+ul {
+  list-style: none;
+  text-align: left;
+  line-height: 1.8;
+  margin-right:1rem; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

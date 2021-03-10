@@ -1,0 +1,65 @@
+.login-page {
+  display: flex;
+align-items: center;
+margin-right: 30rem;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  margin-right: 30rem;}
+
+.form {
+margin: 6rem 20rem 4rem 10rem;
+border: 3px solid black;
+padding: 3rem;
+background-color: rgba(233, 170, 133, 0.932);
+display:flex;
+flex-direction: column;
+align-items: center;
+border-radius: 7%;
+}
+
+  
+  .submit-button  {
+    border-radius: 5rem;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .form-details {
+    border:2px solid blueviolet;
+    padding: 5rem;
+    height: 15rem;
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top:5rem;
+
+  }
+
+  .form input {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+
+  }
+
+  .form label {
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .login-page image {
+    opacity: 0.2;
+  }

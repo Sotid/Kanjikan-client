@@ -24,8 +24,8 @@ class Home extends React.Component {
       <div>
         {lessons.map((allLessons) => (
           <div key={allLessons._id}>
-            <Link to={`/lessons/${allLessons._id}`}>
-              <h2>{allLessons.name}</h2>
+            <Link className="link" to={`/lessons/${allLessons._id}`}>
+              <h2 className="lessons">  {allLessons.name}</h2>
             </Link>
           </div>
         ))}

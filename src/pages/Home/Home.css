@@ -1,3 +1,40 @@
 body {
   background-color:cornsilk;
 }
+
+
+.lessons{
+  border: 0.5rem outset rgba(255, 166, 0, 0.623);
+  border-radius: 15rem;
+  font: bold 1rem sans-serif;
+  margin: 4rem;
+  padding: 4rem 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 3rem 27rem;
+  text-decoration: none;
+  background-color:rgb(240, 153, 118);
+
+}
+
+ .link:link {
+  color: orangered;
+  text-decoration: none;
+}
+
+
+/* visited link */
+.link:visited {
+  color: rgb(6, 100, 6);
+}
+
+/* mouse over link */
+.link:hover {
+  color: hotpink;
+}
+
+/* selected link */
+.link:active {
+  color: blue;
+}
+
