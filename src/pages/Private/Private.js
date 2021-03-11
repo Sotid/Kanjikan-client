@@ -3,6 +3,7 @@ import { withAuth } from "./../../context/auth.context";
 import EditProfile from "../../components/EditProfile/EditProfile";
 import privateService from "./../../services/private.service";
 import AuthService from "./../../services/auth.service";
+import "./Private.css";
 
 class Private extends Component {
   constructor(props) {
@@ -38,11 +39,13 @@ class Private extends Component {
   render() {
     return (
       <div className="user-details">
-        <h2>Welcome {this.props.user && this.props.user.username}</h2>
+        <h2>Welcome {this.props.user && this.props.user.username}!</h2>
         <div>
           <p>Username: {this.props.user.username}</p>
           <p>Email: {this.props.user.email}</p>
-          <button onClick={this.toggleEdit}>Edit</button>
+          <button className="edit-btn" onClick={this.toggleEdit}>
+            Edit
+          </button>
           {this.state.showEdit ? <EditProfile /> : null}
         </div>
         <br />
@@ -86,6 +89,7 @@ class Private extends Component {
                           <li> Onyomi: {on_readings.map((on) => on + ", ")}</li>
                         </ul>
                         <button
+                          className="edit-btn"
                           onClick={() =>
                             this.deleteKanji(data._id, this.props.user._id)
                           }

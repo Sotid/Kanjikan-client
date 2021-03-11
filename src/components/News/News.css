@@ -1,0 +1,16 @@
+.news img {
+  height: 20rem;
+  width: 20rem;
+  padding-bottom: 3rem;
+  border-radius: 3%;
+}
+.news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+}
+.news a {
+  text-decoration: none;
+  overflow: hidden;
+}

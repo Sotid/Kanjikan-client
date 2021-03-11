@@ -1,17 +1,14 @@
 import React from "react";
 import axios from "axios";
-import { Link, Redirect, Route } from "react-router-dom";
-
+import "./News.css";
 class News extends React.Component {
   state = {
     news: [],
     isReady: false,
   };
-
   componentDidMount() {
     this.loadNews();
   }
-
   loadNews = async () => {
     try {
       let res = await axios.get(
@@ -25,15 +22,13 @@ class News extends React.Component {
       console.log(err);
     }
   };
-
   render() {
     const { news, isReady } = this.state;
-
     return (
       <div>
         {this.state.isReady &&
           news.articles.map((oneArticle) => (
-            <div>
+            <div className="news">
               <img src={oneArticle.urlToImage} />
               <a href={oneArticle.url} target="_blank">
                 {oneArticle.title}
@@ -44,5 +39,4 @@ class News extends React.Component {
     );
   }
 }
-
 export default News;

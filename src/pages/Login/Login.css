@@ -1,65 +1,50 @@
-.login-page {
-  display: flex;
-align-items: center;
-margin-right: 30rem;
+.wrapper {
+  width: 800px;
+  height: 600px;
+  margin: 3% auto;
+  background-color: cornsilk;
+  box-shadow: 2px 18px 70px 0px #9d9d9d;
+  background-image: url("https://i.postimg.cc/fL88FzDF/logo.png");
 }
-
 .login {
+  background-color: #fff;
+  width: 800px;
+  height: 450px;
+  bottom: 0;
+  padding: 10%;
+  box-sizing: border-box;
+  text-align: center;
   display: flex;
-  align-items: center;
-  margin-right: 30rem;}
-
-.form {
-margin: 6rem 20rem 4rem 10rem;
-border: 3px solid black;
-padding: 3rem;
-background-color: rgba(233, 170, 133, 0.932);
-display:flex;
-flex-direction: column;
-align-items: center;
-border-radius: 7%;
+  flex-direction: column;
+  justify-content: center;
 }
-
-  
-  .submit-button  {
-    border-radius: 5rem;
-    border: 1px solid #FF4B2B;
-    background-color: #FF4B2B;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  
-  .form-details {
-    border:2px solid blueviolet;
-    padding: 5rem;
-    height: 15rem;
-    border-radius: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding-top:5rem;
-
-  }
-
-  .form input {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-
-  }
-
-  .form label {
-    font-size: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-
-  p {
-    font-size: 1.2rem;
-  }
-
-  .login-page image {
-    opacity: 0.2;
-  }
+.login input {
+  margin-top: 30px;
+  height: 40px;
+  width: 300px;
+  border-radius: 2px;
+  border: none;
+  background-color: #444;
+  opacity: 0.6;
+  outline: none;
+  color: #fff;
+}
+.login label {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+.login p {
+  font-size: 1.3rem;
+}
+.input-login {
+  font-size: 1rem;
+  padding: 1rem;
+}
+.login input {
+  margin-left: 10rem;
+}
+.login-button {
+  font-size: 1.5rem;
+  padding-left: 5rem;
+  text-align: center;
+}

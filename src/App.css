@@ -1,41 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=RocknRoll+One&display=swap");
+
 html,
 body {
   margin: 0;
   padding: 0;
+  font-family: "RocknRoll One", sans-serif;
 }
 .App {
-  padding: 20px;
+  padding: 10px;
 }
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 0px 20px;
+
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
-  background: #ffffff;
-  color: rgb(0, 0, 0);
+  background: cornsilk;
+  font-family: "RocknRoll One", sans-serif;
 }
-button.navbar-button {
-  display: flex;
-  padding: 5px 20px;
-  width: 100px;
-  margin: 15px 10px;
-  border-radius: 3px;
-}
+
 .logo {
+  object-fit: cover;
   display: flex;
-  top: 0;
-  left: 0;
   width: 8rem;
-  height: auto;
 }
+
 .nav-list {
   list-style: none;
   display: flex;
+  text-transform: uppercase;
   flex-direction: row;
   justify-content: space-around;
 }
+.nav-list li {
+  color: rgb(201 23 5);
+}
+
+.nav-list li:hover,
+.nav-list li:focus {
+  color: black;
+  font-size: 18px;
+}
+
 .nav-text {
   color: rgb(0, 0, 0);
   text-decoration: none;
@@ -43,4 +50,17 @@ button.navbar-button {
 }
 button-container {
   float: right;
+}
+#logout-img {
+  object-fit: cover;
+  width: 2rem;
+  height: auto;
+}
+.logout {
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  margin: 1rem;
+  cursor: pointer;
 }

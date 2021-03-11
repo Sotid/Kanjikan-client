@@ -48,7 +48,7 @@ class SingleKanji extends Component {
                   <p>{meanings}</p>
                 </div>
                 <div className="back">
-                  <h2> {kanji}</h2>
+                  <h2 className="small-title"> {kanji}</h2>
 
                   <ul>
                     <li> Difficulty level: {grade}</li>

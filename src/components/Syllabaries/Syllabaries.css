@@ -1,0 +1,10 @@
+.basic {
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.basic img {
+  height: 20rem;
+  width: 20rem;
+}

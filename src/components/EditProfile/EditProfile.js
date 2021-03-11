@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PrivateService from "../../services/private.service";
 import { withAuth } from "./../../context/auth.context";
 import "./EditProfile.css";
+
 class EditProfile extends Component {
   state = {
     username: "",
@@ -13,17 +14,24 @@ class EditProfile extends Component {
     const { username, email, password } = this.state;
     const { _id } = this.props.user;
     PrivateService.editProfile(username, email, password, _id);
+    this.setState({
+      username: "",
+      password: "",
+      email: "",
+    });
   };
+
   handleChange = (event) => {
     let { name, value } = event.target;
-    this.setState(() => ({ [name]: value }));
+    this.setState({ [name]: value });
   };
+
   render() {
     return (
       <div className="edit-container">
         <div className="edit-form">
           <form onSubmit={this.handleFormSubmit}>
-            <label>username:</label>
+            <label>Username:</label>
             <input
               className="slide"
               type="text"
@@ -32,7 +40,7 @@ class EditProfile extends Component {
               value={this.state.username}
               onChange={this.handleChange}
             />
-            <label>email:</label>
+            <label>Email:</label>
             <input
               className="slide"
               name="email"
@@ -41,11 +49,12 @@ class EditProfile extends Component {
               value={this.state.email}
               onChange={this.handleChange}
             />
-            <label>password:</label>
+            <label>Password:</label>
             <input
               className="slide"
               name="password"
               type="password"
+              placeholder="********"
               value={this.state.password}
               onChange={this.handleChange}
             />

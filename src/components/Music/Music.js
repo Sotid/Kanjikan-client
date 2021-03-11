@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import "./Music.css";
+
 class Music extends React.Component {
   state = {
     music: [],
@@ -23,21 +25,22 @@ class Music extends React.Component {
   }
   render() {
     const { music, isReady } = this.state;
-
     return (
       <div>
-        <h1>Music</h1>
-        {isReady &&
-          music.topartists.artist
-            .sort((a, b) => b.name.localeCompare(a.name))
-            .splice(0, 16)
-            .map((oneArtist) => (
-              <div>
-                <a href={oneArtist.url} target="_blank">
-                  {oneArtist.name}
-                </a>
-              </div>
-            ))}
+        <h1 className="music-title">Click to listen to japanese music</h1>
+        <div className="artists">
+          {isReady &&
+            music.topartists.artist
+              .sort((a, b) => b.name.localeCompare(a.name))
+              .splice(0, 16)
+              .map((oneArtist) => (
+                <div>
+                  <a href={oneArtist.url} target="_blank">
+                    {oneArtist.name}
+                  </a>
+                </div>
+              ))}
+        </div>
       </div>
     );
   }

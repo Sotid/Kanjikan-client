@@ -22,11 +22,11 @@ class Home extends React.Component {
   render() {
     const { lessons } = this.state;
     return (
-      <div>
+      <div className="lessons-container">
         {lessons.map((allLessons) => (
-          <div key={allLessons._id}>
-            <Link className="link" to={`/lessons/${allLessons._id}`}>
-              <h2 className="lessons"> {allLessons.name}</h2>
+          <div className="all-buttons" key={allLessons._id}>
+            <Link className="lessons-link" to={`/lessons/${allLessons._id}`}>
+              <h2 className="lessons-text"> {allLessons.name}</h2>
             </Link>
           </div>
         ))}

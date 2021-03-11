@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { withAuth } from "../../context/auth.context";
 import dictionaryService from "./../../services/dictionary.service";
 import AuthService from "./../../services/auth.service";
-import axios from "axios";
-import { generatePath } from "react-router-dom";
 import privateService from "./../../services/private.service";
+import "./Dictionary.css";
 
 class Dictionary extends Component {
   constructor(props) {
@@ -28,7 +27,9 @@ class Dictionary extends Component {
         return data.meanings.includes(query);
       });
       this.setState({ result: [findMeaning] });
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   handleSubmit = (event) => {
@@ -46,14 +47,17 @@ class Dictionary extends Component {
   render() {
     return (
       <div>
-        <div>
-          <input
-            placeholder="search for kanjis"
-            name="search"
-            type="text"
-            value={this.state.query}
-            onChange={this.handleSearchInput}
-          />
+        <div className="dictionary">
+          <div className="search">
+            <input
+              className="search-input"
+              placeholder="Search for kanji"
+              name="search"
+              type="text"
+              value={this.state.query}
+              onChange={this.handleSearchInput}
+            />
+          </div>
           <div className="card">
             {this.state.result.map((data, key) => {
               return (
@@ -69,7 +73,6 @@ class Dictionary extends Component {
                       </div>
                       <div className="back">
                         <h2> {data.kanji}</h2>
-
                         <ul>
                           <li> Difficulty level: {data.grade}</li>
                           <li> Strokes: {data.stroke_count}</li>

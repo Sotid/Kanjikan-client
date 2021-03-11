@@ -33,7 +33,10 @@ class Navbar extends Component {
         {this.props.isLoggedIn ? (
           <>
             <button className="logout" onClick={this.props.logout}>
-              Logout
+              <img
+                id="logout-img"
+                src="https://i.postimg.cc/4dRnX8yd/logout.png"
+              />
             </button>
           </>
         ) : (

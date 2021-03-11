@@ -1,0 +1,86 @@
+.resources {
+  border: 2px solid red;
+}
+.api {
+  border: 5px solid black;
+  box-shadow: 0.4rem 0.4rem;
+  box-shadow: 0.4rem 0.4rem #4b4848;
+  border-radius: 2rem;
+  margin: 3rem 20rem;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5rem 5rem 2rem;
+  text-align: center;
+}
+.api p {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.other {
+  border: 2px solid black;
+}
+.news-container {
+  width: 10rem;
+  padding-right: 15rem;
+}
+.music-container {
+  width: 10rem;
+}
+.syllabaries-container {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid black;
+  box-shadow: 0.4rem 0.4rem;
+  box-shadow: 0.4rem 0.4rem #4b4848;
+  border-radius: 2rem;
+  margin: 3rem 20rem;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5rem 5rem 2rem;
+  text-align: center;
+}
+.syllabaries-container p {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.syllabaries-container button {
+  margin: 0rem 16rem;
+}
+.basic {
+  display: flex;
+  padding-top: 2rem;
+}
+.basic img {
+  height: 30rem;
+  width: 20rem;
+}
+.hiragana {
+  padding-right: 6rem;
+}
+.combined img {
+  height: 30rem;
+  width: 20rem;
+  padding-top: 2rem;
+}
+.other {
+  border: 5px solid black;
+  box-shadow: 0.4rem 0.4rem;
+  box-shadow: 0.4rem 0.4rem #4b4848;
+  border-radius: 2rem;
+  margin: 3rem 20rem;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5rem 5rem 2rem;
+  text-align: center;
+}
+.other p {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.videos-container {
+  width: 17rem;
+  padding-right: 10rem;
+}
+.blogs-container {
+  width: 23rem;
+}

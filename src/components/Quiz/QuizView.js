@@ -83,48 +83,63 @@ class Quizview extends React.Component {
     //End screen
     if (this.state.quizEnd) {
       return (
-        <div>
-          <p>Final score: {this.state.score} out of 10</p>
-          <p>Correct answers:</p>
-          <ul>
-            {QuizData.slice(0, 10).map((item) => (
-              <li className="choices">
-                {item.question} {item.answer}
-              </li>
-            ))}
-          </ul>
-          {/* Restart Quiz */}
-          <div>
-            <button onClick={() => window.location.reload()}>Restart</button>
-            {/* {this.state.show ? <Start /> : null} */}
+        <div className="box">
+          <div className="quiz-container">
+            <p>Final score: {this.state.score} out of 10</p>
+            <p>Correct answers:</p>
+            <ul>
+              {QuizData.slice(0, 10).map((item) => (
+                <li className="choices">
+                  {item.question} {item.answer}
+                </li>
+              ))}
+            </ul>
+            {/* Restart Quiz */}
+            <div>
+              <button
+                className="next-btn"
+                onClick={() => window.location.reload()}
+              >
+                Restart
+              </button>
+              {/* {this.state.show ? <Start /> : null} */}
+            </div>
           </div>
         </div>
       );
     }
     return (
       //Quiz view
-      <div>
-        <h1>{this.state.question}</h1>
-        {this.state.choices.map((choice) => (
-          <p
-            key={choice.id}
-            className={`options
+      <div className="box">
+        <div className="quiz-container">
+          <h1>{this.state.question}</h1>
+          {this.state.choices.map((choice) => (
+            <button
+              key={choice.id}
+              className={`options
                 ${this.userAnswer === choice ? "selected" : null}
                 `}
-            onClick={() => this.checkAnswer(choice)}
-          >
-            {choice}
-          </p>
-        ))}
-        {this.state.currentIndex < 10 && (
-          <button onClick={this.nextQuestionHandle}>Next</button>
-        )}
-        {/* Shows answers */}
-        {this.state.quizLength === 10 && (
-          <button className="finish-btn" onClick={this.finishHandle}>
-            Finish
-          </button>
-        )}
+              onClick={() => this.checkAnswer(choice)}
+            >
+              {choice}
+            </button>
+          ))}
+          {this.state.currentIndex < 10 && (
+            <div className="next-btn-container">
+              <button className="next-btn" onClick={this.nextQuestionHandle}>
+                Next
+              </button>
+            </div>
+          )}
+          {/* Shows answers */}
+          {this.state.quizLength === 10 && (
+            <div className="next-btn-container">
+              <button className="finish-btn" onClick={this.finishHandle}>
+                Finish
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
