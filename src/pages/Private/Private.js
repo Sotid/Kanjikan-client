@@ -41,7 +41,7 @@ class Private extends Component {
       <div className="user-details">
         <h2>Welcome {this.props.user && this.props.user.username}!</h2>
         <div>
-          <p>Username: {this.props.user && this.props.username}</p>
+          <p>Username: {this.props.user && this.props.user.username}</p>
           <p>Email: {this.props.user && this.props.user.email}</p>
           <button className="edit-btn" onClick={this.toggleEdit}>
             Edit
