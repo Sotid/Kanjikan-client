@@ -92,11 +92,12 @@ class Dictionary extends Component {
                           </li>
                         </ul>
                         <button
+                          className="add-bookmarks"
                           onClick={() =>
                             this.addKanjiUser(data._id, this.props.user._id)
                           }
                         >
-                          Add Kanji to User
+                          Add to my bookmarks
                         </button>
                       </div>
                     </div>
