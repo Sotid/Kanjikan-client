@@ -43,7 +43,7 @@ class AuthService {
   me() {
    const pr = this.auth
       .get("/auth/me")
-      .then((response) => response.data)
+      .then(response => response.data)
       .catch(err => console.log(err))
     return pr;
   }

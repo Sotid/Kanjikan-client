@@ -19,7 +19,7 @@ class Private extends Component {
   };
 
   componentDidMount = () => {
-    const bookmarksArr = [...this.props.user.bookmarks];
+    const bookmarksArr = this.props.user && [...this.props.user.bookmarks];
     this.setState({ kanjis: bookmarksArr });
   };
 
@@ -41,8 +41,8 @@ class Private extends Component {
       <div className="user-details">
         <h2>Welcome {this.props.user && this.props.user.username}!</h2>
         <div>
-          <p>Username: {this.props.user.username}</p>
-          <p>Email: {this.props.user.email}</p>
+          <p>Username: {this.props.user && this.props.username}</p>
+          <p>Email: {this.props.user && this.props.user.email}</p>
           <button className="edit-btn" onClick={this.toggleEdit}>
             Edit
           </button>
@@ -51,8 +51,8 @@ class Private extends Component {
         <br />
         <div className="card">
           <h3>My bookmarks</h3>
-          {this.state.kanjis.length === 0
-            ? this.props.user.bookmarks.map((data) => {
+          {this.state.kanjis && this.state.kanjis.length === 0
+            ? this.props.user && this.props.user.bookmarks.map((data) => {
                 const {
                   kanji,
                   grade,
@@ -102,7 +102,7 @@ class Private extends Component {
                   </div>
                 );
               })
-            : this.state.kanjis.map((data) => {
+            : this.state.kanjis && this.state.kanjis.map((data) => {
                 const {
                   kanji,
                   grade,
