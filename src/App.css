@@ -12,11 +12,11 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
+  background-color: rgba(239,208,154,255);
 
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
-  background: cornsilk;
   font-family: "RocknRoll One", sans-serif;
 }
 
@@ -63,4 +63,26 @@ button-container {
   border: none;
   margin: 1rem;
   cursor: pointer;
+}
+
+.navbar-button {
+  background: #9e0505;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border: 1px solid white;
+
+}
+.navbar-button:hover,
+.navbar-button:focus {
+  background: #ffffff;
+  border: none;
+  color: #9e0505;
+  font-weight: bolder;
+}
+.buttons-container{
+  display:flex;
+  flex-direction: row;
+  margin: 1rem 1rem;
+
 }

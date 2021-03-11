@@ -45,6 +45,8 @@ class Resources extends React.Component {
               {this.state.showMusic ? <Music /> : null}
             </div>
           </div>
+
+
           <div className="syllabaries-container">
             <p>Syllabaries</p>
             <button onClick={this.toggleSyllabaries}>Show More</button>

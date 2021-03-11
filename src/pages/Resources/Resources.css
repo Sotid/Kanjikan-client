@@ -1,15 +1,16 @@
 
 .api {
-  border: 5px solid black;
-  box-shadow: 0.4rem 0.4rem;
-  box-shadow: 0.4rem 0.4rem #4b4848;
+  border: 5px solid rgb(230, 157, 48);
+  box-shadow: 2px 18px 70px 0px #ce9567;
   border-radius: 2rem;
-  margin: 3rem 20rem;
+  margin: 1.8rem 20rem;
   display: flex;
   justify-content: space-evenly;
   padding: 0.5rem 5rem 2rem;
   text-align: center;
 }
+
+
 .api p {
   font-size: 2rem;
   font-weight: 500;
@@ -27,23 +28,20 @@
 .syllabaries-container {
   display: flex;
   flex-direction: column;
-  border: 5px solid black;
-  box-shadow: 0.4rem 0.4rem;
-  box-shadow: 0.4rem 0.4rem #4b4848;
+  border: 5px solid rgb(230, 157, 48);
+  box-shadow: 2px 18px 70px 0px #ce9567;
   border-radius: 2rem;
-  margin: 3rem 20rem;
+  margin: 1.8rem 20rem;
   display: flex;
   justify-content: space-evenly;
-  padding: 0.5rem 5rem 2rem;
+  padding: 0.5rem 2rem 2rem;
   text-align: center;
 }
 .syllabaries-container p {
   font-size: 2rem;
   font-weight: 500;
 }
-.syllabaries-container button {
-  margin: 0rem 16rem;
-}
+
 .basic {
   display: flex;
   padding-top: 2rem;
@@ -61,11 +59,10 @@
   padding-top: 2rem;
 }
 .other {
-  border: 5px solid black;
-  box-shadow: 0.4rem 0.4rem;
-  box-shadow: 0.4rem 0.4rem #4b4848;
+  border: 5px solid rgb(230, 157, 48);
+  box-shadow: 2px 18px 70px 0px #ce9567;
   border-radius: 2rem;
-  margin: 3rem 20rem;
+  margin: 1.8rem 20rem;
   display: flex;
   justify-content: space-evenly;
   padding: 0.5rem 5rem 2rem;
@@ -81,4 +78,55 @@
 }
 .blogs-container {
   width: 23rem;
+}
+
+.syllabaries-container button {
+  background: #9e0505;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border: 1px solid white;
+  margin: 0rem 20rem;
+
+
+}
+
+.syllabaries-container button:hover,
+.syllabaries-container button:focus {
+  background: #ffffff;
+  border: none;
+  color: #9e0505;
+  font-weight: bolder;
+}
+
+.api button {
+  background: #9e0505;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border: 1px solid white;
+
+}
+.api button:hover,
+.api button:focus {
+  background: #ffffff;
+  border: none;
+  color: #9e0505;
+  font-weight: bolder;
+}
+
+.other button {
+  background: #9e0505;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border: 1px solid white;
+
+}
+.other button:hover,
+.other button:focus {
+  background: #ffffff;
+  border: none;
+  color: #9e0505;
+  font-weight: bolder;
 }

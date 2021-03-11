@@ -2,12 +2,12 @@
   width: 800px;
   height: 600px;
   margin: 3% auto;
-  background-color: cornsilk;
+  background-color: rgba(239,208,154,255);
   box-shadow: 2px 18px 70px 0px #9d9d9d;
   background-image: url("https://i.postimg.cc/fL88FzDF/logo.png");
 }
 .login {
-  background-color: #fff;
+  background: rgb(250, 246, 230);
   width: 800px;
   height: 450px;
   bottom: 0;
@@ -44,7 +44,22 @@
   margin-left: 10rem;
 }
 .login-button {
-  font-size: 1.5rem;
-  padding-left: 5rem;
-  text-align: center;
-}
+  
+    outline: 0;
+    background: #9e0505;
+    width: 25%;
+    border: 0;
+    padding: 15px 10px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin: 2rem 0 0 15rem;
+  }
+  .login-button:hover,
+  .login-button:focus {
+    background: #a15e06;
+  }
+

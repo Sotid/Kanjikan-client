@@ -17,3 +17,28 @@
 .edit-btn:focus {
   background: #a15e06;
 }
+.profile-columns {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.profile-columns .flip-container {
+  width: 45%;
+  min-height: 100px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  background-clip: content-box;
+}
+.delete-bookmarks {
+  background: #9e0505;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+}
+.delete-bookmarks:hover,
+.delete-bookmarks:focus {
+  background: #ffffff;
+  border: none;
+  color: #9e0505;
+  font-weight: bolder;
+}

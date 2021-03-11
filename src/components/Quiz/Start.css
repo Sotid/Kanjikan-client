@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=RocknRoll+One&display=swap");
+.start-container {
+  text-align: center;
+}
+.start-title {
+  margin-top: 7rem;
+  font-family: "RocknRoll One", sans-serif;
+  font-size: 5rem;
+}
+.start-btn {
+  padding: 1rem;
+  font-size: 2rem;
+  margin-top: 2rem;
+}

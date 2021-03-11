@@ -9,7 +9,6 @@ body {
 }
 .flip-container {
   perspective: 1000;
-  border: 1px solid #d9d9d9;
   margin: 2rem 0;
   -moz-transform-style: preserve-3d;
   -moz-transform: perspective(1000px);
@@ -93,3 +92,11 @@ ul {
   font-family: "Sawarabi Mincho", sans-serif;
   line-height: 0.4;
 }
+
+
+
+
+
+
+
+

@@ -6,7 +6,7 @@
   background-image: url("https://i.postimg.cc/fL88FzDF/logo.png");
 }
 .signup {
-  background-color: #fff;
+  background: rgb(250, 246, 230);
   width: 800px;
   height: 450px;
   bottom: 0;
@@ -23,23 +23,32 @@
   width: 300px;
   border-radius: 2px;
   border: none;
-  background-color: whitesmoke;
+  background-color: rgb(238, 230, 230);
   outline: none;
   color: black;
   margin-left: 10rem;
 }
 .signup label {
   font-size: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 0.9rem;
 }
-.signup-login {
-  font-size: q0rem;
+
+.input-signup {
+  font-size: 1rem;
+  padding: 1rem;
 }
-.signup input {
-  margin-left: 10rem;
-}
-.submit-button {
-  font-size: 1.5rem;
-  padding-left: 20rem;
-  text-align: center;
+
+.signup-button {
+  outline: 0;
+    background: #9e0505;
+    width: 25%;
+    border: 0;
+    padding: 15px 10px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin: 2rem 0 0 15rem;
 }

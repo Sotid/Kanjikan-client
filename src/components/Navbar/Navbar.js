@@ -41,6 +41,7 @@ class Navbar extends Component {
           </>
         ) : (
           <>
+          <div className="buttons-container"> 
             <Link to="/login">
               <button className="navbar-button">Login</button>{" "}
             </Link>
@@ -48,6 +49,7 @@ class Navbar extends Component {
             <Link to="/signup">
               <button className="navbar-button">Sign Up</button>{" "}
             </Link>
+            </div>
           </>
         )}
       </nav>

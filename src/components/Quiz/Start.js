@@ -1,5 +1,6 @@
 import React from "react";
 import Quizview from "./QuizView";
+import "./Start.css";
 class Start extends React.Component {
   constructor(props) {
     super(props);
@@ -13,13 +14,15 @@ class Start extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="start-container">
         {this.state.visible ? (
           <Quizview />
         ) : (
           <div>
-            <h1>Start the quiz!</h1>
-            <button onClick={this.startQuiz}>Start</button>
+            <h1 className="start-title">Start the quiz!</h1>
+            <button className="next-btn start-btn" onClick={this.startQuiz}>
+              Start
+            </button>
           </div>
         )}
       </div>

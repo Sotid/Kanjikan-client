@@ -1,6 +1,3 @@
-.dictionary {
-  /* background-image: url("https://i.postimg.cc/fL88FzDF/logo.png"); */
-}
 .search {
   padding-top: 64px;
   margin: 0rem 20rem;
@@ -29,16 +26,16 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
-/* .search:hover,
-.search:focus {
-  padding: 12px 0;
-  outline: 0;
-  border: none;
-  border-bottom: 2px solid black;
-  border-radius: 0;
-  background-position: 100% center;
-} */
 .add-bookmarks {
+  background: #9e0505;
+  border: none;
+  color: white;
+  padding: 0.5rem;
 }
-.delete-btn {
+.add-bookmarks:hover,
+.add-bookmarks:focus {
+  background: #ffffff;
+  border: none;
+  color: #9e0505;
+  font-weight: bolder;
 }

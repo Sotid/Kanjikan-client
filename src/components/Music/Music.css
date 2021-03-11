@@ -4,7 +4,7 @@
 }
 .artists a {
   text-decoration: none;
-  color: orange;
+  color: #9e0505;
 }
 .artists {
   display: flex;
