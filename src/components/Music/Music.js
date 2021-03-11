@@ -20,7 +20,7 @@ class Music extends React.Component {
       console.log(err);
     }
   };
-  async componentDidMount() {
+  componentDidMount() {
     this.loadMusic();
   }
   render() {

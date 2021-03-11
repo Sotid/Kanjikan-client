@@ -6,9 +6,7 @@ class News extends React.Component {
     news: [],
     isReady: false,
   };
-  componentDidMount() {
-    this.loadNews();
-  }
+  
   loadNews = async () => {
     try {
       let res = await axios.get(
@@ -22,6 +20,9 @@ class News extends React.Component {
       console.log(err);
     }
   };
+  componentDidMount() {
+    this.loadNews();
+  }
   render() {
     const { news, isReady } = this.state;
     return (
