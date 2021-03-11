@@ -33,7 +33,7 @@ class Private extends Component {
 
     this.setState({ kanjis: filtered });
     this.props.user.bookmarks = filtered;
-    AuthService.me(this.props.user._id);
+    AuthService.me();
   };
 
   render() {
