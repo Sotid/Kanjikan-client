@@ -20,7 +20,7 @@ class News extends React.Component {
       console.log(err);
     }
   };
-  componentDidMount() {
+  async componentDidMount() {
     this.loadNews();
   }
   render() {
