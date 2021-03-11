@@ -12,7 +12,7 @@ class News extends React.Component {
   loadNews = async () => {
     try {
       let res = await axios.get(
-        "http://newsapi.org/v2/top-headlines?country=jp&apiKey=cee726d1eb8c4517a7d4597d6c731727"
+        "https://newsapi.org/v2/top-headlines?country=jp&apiKey=cee726d1eb8c4517a7d4597d6c731727"
       );
       if (res) {
         const { data } = res;

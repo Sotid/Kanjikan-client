@@ -25,15 +25,6 @@ class LessonsService {
       console.log(err);
     }
   };
-
-  getOneQuiz = async (id) => {
-    try {
-      let response = await this.lessons.get(`/api/lessons/${id}/quiz`);
-      return response.data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
 }
 
 const lessonsService = new LessonsService();

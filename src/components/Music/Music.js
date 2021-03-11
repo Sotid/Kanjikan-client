@@ -10,7 +10,7 @@ class Music extends React.Component {
   loadMusic = async () => {
     try {
       let res = await axios.get(
-        "http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=japan&api_key=d620d7726ae86f44b956c1a641beeb9f&format=json"
+        "https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=japan&api_key=d620d7726ae86f44b956c1a641beeb9f&format=json"
       );
       if (res) {
         const { data } = res;
