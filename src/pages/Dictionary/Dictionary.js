@@ -41,7 +41,7 @@ class Dictionary extends Component {
   addKanjiUser = (kanjiId, userId) => {
     privateService.addToBookmarks({ kanjiId: kanjiId }, userId);
     window.location.reload();
-    AuthService.me();
+    AuthService.me(this.props.user._id);
   };
 
   render() {

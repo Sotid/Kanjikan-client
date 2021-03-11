@@ -9,6 +9,7 @@ class EditProfile extends Component {
     password: "",
     email: "",
   };
+  
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, email, password } = this.state;
